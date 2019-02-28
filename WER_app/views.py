@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
+    return render(request, 'WER_app/index.html')
 
-    return HttpResponse("This is West End Restaurants! <br/> <a href='/WER_app/about/'>About</a> ")
-    
 
-def about(request):
-    return HttpResponse("About Us")
+def search(request):
+    return render(request, 'WER_app/search.html')
+
