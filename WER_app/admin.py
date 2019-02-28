@@ -1,3 +1,3 @@
 from django.contrib import admin
-
-# Register your models here.
+from WER_app.models import Review
+admin.site.register(Review)
