@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+        <div> 
+        {% if reviews %} 
+        <ul> 
+            <strong> Library Cafe Review: </strong>
+            {% for review in reviews %} 
+            {% if review.title == "Library Cafe" %}
+                <li> {{review.comment}} - Rating: {{review.avgRating}} </li> 
+            {% endif %}
+            {% endfor %} 
+        </ul> {% else %} 
+            <strong>There are no categories present.</strong> 
+        {% endif %} 
+        </div>
+        
+        <div> 
+        {% if reviews %} 
+        <ul> 
+            <strong> Paesano Pizza Reviews: </strong>
+            {% for review in reviews %} 
+            {% if review.title == "Paesano Pizza" %}
+                <li> {{review.comment}} - Rating: {{review.avgRating}} </li> 
+            {% endif %}
+            {% endfor %} 
+        </ul> {% else %} 
+            <strong>There are no categories present.</strong> 
+        {% endif %} 
+        </div>
+            
+</html>
