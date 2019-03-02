@@ -8,13 +8,21 @@ from django.db import models
 class Review(models.Model):
    
     reviewID = models.IntegerField(unique=True)
+    title = models.CharField(max_length=50, default="Default")
     #user
-    date = models.DateField(auto_now=True)
+    
     comment = models.CharField(max_length=200, default="Default")  
+    date = models.DateField(auto_now=True)
     price = models.IntegerField(default=0)
     quality = models.IntegerField(default=0)
-    atmostphere = models.IntegerField(default=0)
+    atmosphere = models.IntegerField(default=0)
     avgRating = models.IntegerField(default=0)
     
     def __str__(self):
         return str(self.reviewID)
+
+        
+class Page(models.Model): 
+    title = models.CharField(max_length=128) 
+    def __str__(self): 
+        return self.title
