@@ -16,4 +16,7 @@ def review_sample(request):
 
     return render(request, 'WER_app/review_sample.html', context_dict)
 
+def base(request):
+    return render(request, 'WER_app/base.html')
+
 
