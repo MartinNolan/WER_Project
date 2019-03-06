@@ -43,8 +43,9 @@
             <div>
         {% if pages %}
             {% for page in pages %}
-            {% if page.title == "Library Cafe" %}
+            {% if page.title == "Ubiquitous Chip" %}
                <h1><u> {{page.title}} </u></h1>
+               {{page.picture}}
                <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
                <h2> {{page.description}} </h2>
                <h3> {{page.address}} </h3>
