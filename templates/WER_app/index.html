@@ -1,49 +1,14 @@
+{% extends 'WER_app/base.html' %}
 <!DOCTYPE html>
 {% load staticfiles %}
 
-<html>
-	<head>
-		<title>
-                West End Restaurants
-		</title>
-		<link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}" />
 
-		</head>
-		
-		
-		<body style="background-image: url({% static 'images/Background.jpg' %})">
-		
-		
-		<div class="navbar">
-		<div style="float:left;">
-		<h1 style="margin: 20px;"> West End Restaurants </h1>
-		</div>
-            
-		<div class="wrap">
-			<div class="search">
-				<input type="text" class="searchTerm" placeholder="Search for a restaurant">
-				<button type="submit" class="searchButton">
-				<i class="fa fa-search"></i>
-				</button>
-			</div>
-		</div>
-            
-		<div class="login-container">
-			<form action="/action_page.php">
-			<input type="text" placeholder="Username" name="username">
-			<input type="text" placeholder="Password" name="psw">
-                <button type="submit">Login</button>
-                <a href="x">Forgotten password?</a>
-            </form>
-		</div>
-		
-            
-        <div style= "float: right; width: 30%; top: 30%; left: 30%;">
-            Or login using Facebook or Twitter
-            
-            </div>
-		</div>
-		
+
+{% block title_block %}
+    {{ page.title }}
+{% endblock %}
+
+{% block body_block %}
 		<div style="margin: 20px;">
 			<h2> Top rated </h2>
 			<img src="/static/images/paesano.jpg"  alt="Paesano West End" style="width:40%">
@@ -129,15 +94,7 @@
 		This will show the ratings
 		</p>
 		</div>
-		
-		<div class="footer">
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">FAQ</a>
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">About Us</a>
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">T&Cs</a>
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">Contact Us</a>
-		
-		
-		</div>
 
-		</body>
+
+		{% endblock %}
 </html>
