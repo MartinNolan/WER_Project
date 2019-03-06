@@ -3,7 +3,9 @@ from WER_app.models import Review, Page
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ("reviewID", "title")
-    
-    
+
+class PageAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('title',)}
+
 admin.site.register(Review, ReviewAdmin)
-admin.site.register(Page)
+admin.site.register(Page, PageAdmin)

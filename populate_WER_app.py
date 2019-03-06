@@ -37,25 +37,22 @@ def populate():
          "price":3,
          "quality":2,
          "atmosphere":4}]
+    Ubiquitous_Chip = [{"title":"Ubiquitous Chip",
+         "comment":"Easy and fast but quite expensive",
+         "price":2,
+         "quality":4,
+         "atmosphere":4},
+         {"title":"Ubiquitous Chip",
+         "comment":"Nothing interesting to eat but nice place",
+         "price":3,
+         "quality":2,
+         "atmosphere":4}]
     
     
-    reviews = {"Paesano Pizza": {"pages": Paesano_Pizza},
-                "Library Cafe": {"pages": Library_Cafe}}
+    reviews = {"Paesano Pizza": {"pages": Paesano_Pizza, "image":"Paesano_Pizza", "description":"Pizza Place", "address":"471 Great Western Road, Glasgow G12 8HL, Scotland", "openingHours":"Sun - Wed  12:00 - 22:30\nThu 12:00 - 23:00\nFri12:00 - 00:00"},
+                "Library Cafe": {"pages": Library_Cafe, "image":"Library_Cafe", "description":"Cafe in the University Library", "address":"University of Glasgow, Hillhead St, Glasgow G12 8QE", "openingHours":"Mon- Thu: 10:00 - 20:00\nFri: 10:00 - 17:00\nSat/Sun: 10:30 - 17:00"},
+                "Ubiquitous Chip": {"pages": Ubiquitous_Chip, "image":"Ubiquitous_Chip", "description":"Fancy food place", "address":"12 Ashton Lane, Glasgow G12 8SJ, Scotland", "openingHours":"Sun – Sat 11:00 - 01:00"}}
     
-    id = 0
-    """
-    for review, review_data in reviews.items():
-        
-        for p in review_data["pages"]:
-            r = add_review(id, p["comment"], p["price"], p["quality"], p["atmosphere"])
-            id+=1 
-        
-        
-        print(r)
-        print(review)
-        add_page(r, review)
-        r = ""
-    """
     id = 0
     for review, review_data in reviews.items():
         for p in review_data["pages"]:
@@ -63,7 +60,7 @@ def populate():
             id+=1
            
         
-        add_page(r, p["title"])
+        add_page(r, p["title"], review_data["image"] , review_data["description"], review_data["address"], review_data["openingHours"])
     #print(str(r))
         
         
@@ -83,8 +80,12 @@ def add_review(reviewID, title, comment, price, quality, atmosphere):
     r.save()
     return r
     
-def add_page(review, title):
+def add_page(review, title, image, description, address, openingHours):
     p = Page.objects.get_or_create(title=title)[0]
+    #p.picture = "static/images/%s"(image) 
+    p.description = description
+    p.address = address
+    p.openingHours = openingHours
     p.save()
     
 if __name__ == '__main__':

@@ -2,24 +2,60 @@
 {% load staticfiles %}
 
 <html>
-        <div> 
-        {% if reviews %} 
-        <ul> 
-            <strong> Library Cafe Review: </strong>
-            {% for review in reviews %} 
-            {% if review.title == "Library Cafe" %}
-                <li> {{review.comment}} - Rating: {{review.avgRating}} </li> 
-            {% endif %}
-            {% endfor %} 
-        </ul> {% else %} 
-            <strong>There are no categories present.</strong> 
-        {% endif %} 
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>
+            West End Restaurants
+
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}" />
+    </head>
+    <body style="background-image: url({% static 'images/Background.jpg' %})">
+        <div class="navbar">
+        <div style="float:left;">
+        <h1 style="margin: 20px;"> West End Restaurants </h1>
         </div>
+            
+        <div class="wrap">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search for a restaurant">
+                <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+            
+        <div class="login-container">
+            <form action="/action_page.php">
+            <input type="text" placeholder="Username" name="username">
+            <input type="text" placeholder="Password" name="psw">
+                <button type="submit">Login</button>
+                <a href="x">Forgotten password?</a>
+            </form>
+        </div>
+        <div style= "float: right; width: 30%; top: 30%; left: 30%;">
+            Or login using Facebook or Twitter
+            
+        </div>
+        </div>
+        <div>
+            {% block body_block %}
+            <div>
+        {% if pages %}
+            {% for page in pages %}
+            {% if page.title == "Library Cafe" %}
+               <h1><u> {{page.title}} </u></h1>
+               <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
+               <h2> {{page.description}} </h2>
+               <h3> {{page.address}} </h3>
+               <h4> {{page.openingHours}} </h4>
+               
+            {% endif %}
+            {% endfor %}
+        {% endif %}
         
-        <div> 
         {% if reviews %} 
         <ul> 
-            <strong> Paesano Pizza Reviews: </strong>
             {% for review in reviews %} 
             {% if review.title == "Paesano Pizza" %}
                 <li> {{review.comment}} - Rating: {{review.avgRating}} </li> 
@@ -29,5 +65,27 @@
             <strong>There are no categories present.</strong> 
         {% endif %} 
         </div>
-            
+        
+        <div> 
+            {% endblock %}
+        </div>
+        
+        <div>
+            {% block sidebar_block %}
+               
+            {% endblock %}
+        </div>
+        
+        
+        <div class="footer">
+            <ul>
+               <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">FAQ</a> 
+                <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">About Us</a> 
+                <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">T&Cs</a> 
+                <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">Contact Us</a> 
+            </ul>
+
+        </div>
+        </div>
+    </body>
 </html>
