@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-#class UserProfile(models.Model):
-#    user = models.OneToOneField(User)
 
 class Review(models.Model):
    
@@ -31,3 +29,12 @@ class Page(models.Model):
     
     def __str__(self): 
         return self.title
+    
+class UserProfile(models.Model):
+    userId = models.IntegerField(unique=True)
+    email = models.CharField(max_length = 100, default="Defualt", unique=True)
+    password = models.CharField(max_length = 30, default="Default")
+    admin = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return str(self.userId)
