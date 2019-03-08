@@ -38,15 +38,15 @@ def populate():
          "quality":2,
          "atmosphere":4}]
     Ubiquitous_Chip = [{"title":"Ubiquitous Chip",
-         "comment":"Easy and fast but quite expensive",
-         "price":2,
-         "quality":4,
+         "comment":"Fancy and very nice",
+         "price":4,
+         "quality":5,
          "atmosphere":4},
          {"title":"Ubiquitous Chip",
-         "comment":"Nothing interesting to eat but nice place",
+         "comment":"Good food but pretentious name",
          "price":3,
-         "quality":2,
-         "atmosphere":4}]
+         "quality":5,
+         "atmosphere":2}]
     
     
     reviews = {"Paesano Pizza": {"pages": Paesano_Pizza, "image":"Paesano_Pizza.jpg", "description":"Pizza Place", "address":"471 Great Western Road, Glasgow G12 8HL, Scotland", "openingHours":"Sun - Wed  12:00 - 22:30\nThu 12:00 - 23:00\nFri12:00 - 00:00"},
