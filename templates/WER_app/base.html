@@ -23,20 +23,15 @@
                 <i class="fa fa-search"></i>
                 </button>
             </div>
-        </div>
-            
-        <div class="login-container">
-            <form action="/action_page.php">
-            <input type="text" placeholder="Username" name="username">
-            <input type="text" placeholder="Password" name="psw">
-                <button type="submit">Login</button>
-                <a href="x">Forgotten password?</a>
-            </form>
-        </div>
-        <div style= "float: right; width: 30%; top: 30%; left: 30%;">
-            Or login using Facebook or Twitter
-            
-        </div>
+        </div>  
+            <ul>
+{% if user.is_authenticated %}
+<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+<li><a href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+<li><a href="{% url 'login' %}">Sign In</a></li>
+<li><a href="{% url 'register' %}">Sign Up</a></li>
+{% endif %}
         </div>
         <div>
             {% block body_block %}
