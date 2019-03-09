@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render
 from django.http import HttpResponse
 from WER_app.models import Review, Page
@@ -35,12 +34,6 @@ def login(request):
 def sign_up(request):
     return render(request, 'WER_app/sign_up.html')    
 
-def review_sample(request):
-    review_list = Review.objects.order_by('reviewID')[:4] 
-    pages = Page.objects.order_by('title')[:4]
-    context_dict = {'reviews': review_list, 'pages':pages}
-
-    return render(request, 'WER_app/review_sample.html', context_dict)
 
 
 
@@ -103,32 +96,6 @@ def user_logout(request):
 
 	return HttpResponseRedirect(reverse('index'))
 
-    
-=======
-from django.shortcuts import render
-from django.http import HttpResponse
-from WER_app.models import Review, Page
-
-def index(request):
-    return render(request, 'WER_app/index.html')
-
-
-def search(request):
-    return render(request, 'WER_app/search.html')
-
-def about(request):
-    return render(request, 'WER_app/about.html')
-    
-    
-def FAQ(request):
-    return render(request, 'WER_app/FAQ.html')
-
-def tAndC(request):
-    return render(request, 'WER_app/t&cs.html')
-    
-def contact(request):
-    return render(request, 'WER_app/contact-us.html')
-    
 def review(request, page_name_slug):
     #review_list = Review.objects.order_by('reviewID')[:4] 
     #pages = Page.objects.order_by('title')[:4]
@@ -154,5 +121,3 @@ def review_sample(request):
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/review_sample.html', context_dict)
-
->>>>>>> 9966d4de5141d7bd1e73dc015bfb14da423884d8
