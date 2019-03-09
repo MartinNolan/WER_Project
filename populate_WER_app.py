@@ -38,20 +38,20 @@ def populate():
          "quality":2,
          "atmosphere":4}]
     Ubiquitous_Chip = [{"title":"Ubiquitous Chip",
-         "comment":"Easy and fast but quite expensive",
-         "price":2,
-         "quality":4,
+         "comment":"Fancy and very nice",
+         "price":4,
+         "quality":5,
          "atmosphere":4},
          {"title":"Ubiquitous Chip",
-         "comment":"Nothing interesting to eat but nice place",
+         "comment":"Good food but pretentious name",
          "price":3,
-         "quality":2,
-         "atmosphere":4}]
+         "quality":5,
+         "atmosphere":2}]
     
     
-    reviews = {"Paesano Pizza": {"pages": Paesano_Pizza, "image":"Paesano_Pizza", "description":"Pizza Place", "address":"471 Great Western Road, Glasgow G12 8HL, Scotland", "openingHours":"Sun - Wed  12:00 - 22:30\nThu 12:00 - 23:00\nFri12:00 - 00:00"},
-                "Library Cafe": {"pages": Library_Cafe, "image":"Library_Cafe", "description":"Cafe in the University Library", "address":"University of Glasgow, Hillhead St, Glasgow G12 8QE", "openingHours":"Mon- Thu: 10:00 - 20:00\nFri: 10:00 - 17:00\nSat/Sun: 10:30 - 17:00"},
-                "Ubiquitous Chip": {"pages": Ubiquitous_Chip, "image":"Ubiquitous_Chip", "description":"Fancy food place", "address":"12 Ashton Lane, Glasgow G12 8SJ, Scotland", "openingHours":"Sun – Sat 11:00 - 01:00"}}
+    reviews = {"Paesano Pizza": {"pages": Paesano_Pizza, "image":"Paesano_Pizza.jpg", "description":"Pizza Place", "address":"471 Great Western Road, Glasgow G12 8HL, Scotland", "openingHours":"Sun - Wed  12:00 - 22:30\nThu 12:00 - 23:00\nFri12:00 - 00:00"},
+                "Library Cafe": {"pages": Library_Cafe, "image":"Library_Cafe.jpg", "description":"Cafe in the University Library", "address":"University of Glasgow, Hillhead St, Glasgow G12 8QE", "openingHours":"Mon- Thu: 10:00 - 20:00\nFri: 10:00 - 17:00\nSat/Sun: 10:30 - 17:00"},
+                "Ubiquitous Chip": {"pages": Ubiquitous_Chip, "image":"Ubiquitous_Chip.jpg", "description":"Fancy food place", "address":"12 Ashton Lane, Glasgow G12 8SJ, Scotland", "openingHours":"Sun – Sat 11:00 - 01:00"}}
     
     id = 0
     for review, review_data in reviews.items():
@@ -82,7 +82,7 @@ def add_review(reviewID, title, comment, price, quality, atmosphere):
     
 def add_page(review, title, image, description, address, openingHours):
     p = Page.objects.get_or_create(title=title)[0]
-    #p.picture = "static/images/%s"(image) 
+    p.picture = image 
     p.description = description
     p.address = address
     p.openingHours = openingHours
