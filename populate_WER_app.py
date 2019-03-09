@@ -4,6 +4,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE","WER_project.settings")
 import django
 django.setup()
 from WER_app.models import Review, Page
+from django.core.files import File
+import os
+import glob
 
 """
 Review entity template
@@ -16,6 +19,10 @@ Review entity template
 """
 
 def populate():
+    cwd = os.getcwd()
+    files = glob.glob(cwd+'/media/restaurant/*')
+    for f in files:
+        os.remove(f)
     
     Paesano_Pizza = [{"title":"Paesano Pizza",
          "comment":"Great Pizza",
@@ -82,7 +89,9 @@ def add_review(reviewID, title, comment, price, quality, atmosphere):
     
 def add_page(review, title, image, description, address, openingHours):
     p = Page.objects.get_or_create(title=title)[0]
-    p.picture = image 
+    cwd = os.getcwd()
+    pic_dir = cwd+'/media/'+image
+    p.picture.save(image, File(open(cwd+'/media/'+image, 'rb')))
     p.description = description
     p.address = address
     p.openingHours = openingHours
