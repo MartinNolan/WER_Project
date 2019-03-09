@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -40,10 +41,10 @@ class Page(models.Model):
         return self.title
     
 class UserProfile(models.Model):
-    userId = models.IntegerField(unique=True)
-    email = models.CharField(max_length = 100, default="Defualt", unique=True)
-    password = models.CharField(max_length = 30, default="Default")
-    admin = models.BooleanField(default=False)
-    
+# This line is required. Links UserProfile to a User model instance.
+    user = models.OneToOneField(User)
+    picture = models.ImageField(upload_to='profile_images', blank=True)
+# Override the __unicode__() method to return out something meaningful!
+# Remember if you use Python 2.7.x, define __unicode__ too!
     def __str__(self):
-        return str(self.userId)
+        return self.user.username

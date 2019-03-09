@@ -1,15 +1,20 @@
 from django import forms
-from rango.models import UserProfile,Review
+from WER_app.models import UserProfile, Review, Page
+from django.contrib.auth.models import User
 
 
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('id', 'email','password', 'admin')
-        
-        
+        fields = ('picture',)
+
 class Reviews(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ('reviewID','title','comment','date','price','quality','atmosphere','avgRating;')
+        fields = ('reviewID','title','comment','price','quality','atmosphere','avgRating',)
