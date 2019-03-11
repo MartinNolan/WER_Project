@@ -32,7 +32,8 @@ def contact(request):
     return render(request, 'WER_app/contact-us.html')
 
 def login(request):
-    return render(request, 'WER_app/login.html')
+        
+    return render(request, 'WER_app/login.html') 
 
 def sign_up(request):
     return render(request, 'WER_app/sign_up.html')    
