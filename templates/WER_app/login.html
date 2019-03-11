@@ -18,8 +18,10 @@ Password: <input type="password" name="password" value="" size="50" />
 </form>
 
 {% if user.is_authenticated %}
-howdy {{ user.username }}!
+Welcome {{ user.username }}!
+<a href="{% url 'index' %}">Return to the homepage.</a><br />
 {% else %}
-hey there partner!
+Welcome to West End Restaurants! Login or Register for a personalised experience!
+<a href="{% url 'index' %}">Return to the homepage.</a><br />
 {% endif %}
 {% endblock %}  
