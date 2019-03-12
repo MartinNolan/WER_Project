@@ -34,9 +34,6 @@ def login(request):
 def sign_up(request):
     return render(request, 'WER_app/sign_up.html')    
 
-
-
-
 def register(request):
 	registered = False
 
@@ -83,7 +80,6 @@ def user_login(request):
 
 	else:
 		return render(request, 'WER_app/login.html', {})
-
 
 @login_required
 def restricted(request):

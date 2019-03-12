@@ -1,28 +1,28 @@
 {% extends 'WER_app/base.html' %}
-2 {% load staticfiles %}
-3
-4 {% block title_block %}
-5 Register
-6 {% endblock %}
-7
-8 {% block body_block %}
-9 <h1>Register for West End Restaurants</h1>
-10 {% if registered %}
-11 <strong>Thank you for registering!</strong>
-12 <a href="{% url 'index' %}">Return to the homepage.</a><br />
-13 {% else %}
-14 <strong>register here!</strong><br />
-15 <form id="user_form" method="post" action="{% url 'register' %}"
-16 enctype="multipart/form-data">
-17
-18 {% csrf_token %}
-19
-20 <!-- Display each form -->
-21 {{ user_form.as_p }}
-22 {{ profile_form.as_p }}
-23
-24 <!-- Provide a button to click to submit the form. -->
-25 <input type="submit" name="submit" value="Register" />
-26 </form>
-27 {% endif %}
-28 {% endblock %}
+{% load staticfiles %}
+
+{% block title_block %}
+     Register
+{% endblock %}
+
+{% block body_block %}
+<h1>Register for West End Restaurants</h1>
+{% if registered %}
+<strong>Thank you for registering!</strong>
+<a href="{% url 'index' %}">Return to the homepage.</a><br />
+{% else %}
+<strong>Register here!</strong><br />
+<form id="user_form" method="post" action="{% url 'register' %}"
+enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<!-- Display each form -->
+{{ user_form.as_p }}
+{{ profile_form.as_p }}
+
+<!-- Provide a button to click to submit the form. -->
+<input type="submit" name="submit" value="Register" />
+</form>
+{% endif %}
+{% endblock %}

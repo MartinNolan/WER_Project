@@ -46,7 +46,7 @@ class Page(models.Model):
     
 class UserProfile(models.Model):
 # This line is required. Links UserProfile to a User model instance.
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
     picture = models.ImageField(upload_to='profile_images', blank=True)
 # Override the __unicode__() method to return out something meaningful!
 # Remember if you use Python 2.7.x, define __unicode__ too!
