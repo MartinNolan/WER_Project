@@ -35,8 +35,7 @@ def login(request):
     return render(request, 'WER_app/login.html')
 
 def sign_up(request):
-    return render(request, 'WER_app/sign_up.html')    
-
+    return render(request, 'WER_app/sign_up.html')
 
 def register(request):
 	registered = False
@@ -85,8 +84,6 @@ def user_login(request):
 	else:
 		return render(request, 'WER_app/login.html', {})
 
-
-
 @login_required
 def restricted(request):
 	return HttpResponse("Since you're logged in, you can see this text!")
@@ -116,8 +113,8 @@ def review(request, page_name_slug):
     return render(request, 'WER_app/review.html', context_dict)    
 
 def review_sample(request):
-    review_list = Review.objects.order_by('reviewID')[:4] 
-    pages = Page.objects.order_by('title')[:4]
+    review_list = Review.objects.order_by('reviewID') 
+    pages = Page.objects.order_by('title')
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/review_sample.html', context_dict)

@@ -43,18 +43,14 @@
             <div>
         {% if pages %}
             {% for page in pages %}
-            <li> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a> </li>
+                {% if page.onCampus == False %}
+                    <li> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a> </li>
+                {% endif %}
             {% endfor %}
         {% endif %}
        
         
         <div> 
-            {% endblock %}
-        </div>
-        
-        <div>
-            {% block sidebar_block %}
-               
             {% endblock %}
         </div>
         

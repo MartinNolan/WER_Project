@@ -29,6 +29,10 @@ class Page(models.Model):
     description = models.CharField(max_length=128, default="Default")
     address = models.CharField(max_length=128, default="Default")
     openingHours = models.CharField(max_length=128, default="Default")
+    onCampus = models.BooleanField(default=False)
+    longitude = models.DecimalField(default=0, max_digits=15, decimal_places=10)
+    latitude = models.DecimalField(default=0, max_digits=15, decimal_places=10)
+    
     slug = models.SlugField(blank=True)
     
     
@@ -42,7 +46,7 @@ class Page(models.Model):
     
 class UserProfile(models.Model):
 # This line is required. Links UserProfile to a User model instance.
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
     picture = models.ImageField(upload_to='profile_images', blank=True)
 # Override the __unicode__() method to return out something meaningful!
 # Remember if you use Python 2.7.x, define __unicode__ too!

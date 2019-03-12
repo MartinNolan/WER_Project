@@ -7,19 +7,22 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>Login to West End Restaurants</h1>
-<form id="login_form" method="post" action="{% url 'login' %}">
-{% csrf_token %}
-Username: <input type="text" name="username" value="" size="50" />
-<br />
-Password: <input type="password" name="password" value="" size="50" />
-<br />
-<input type="submit" value="submit" />
-</form>
+    <h1>Login to West End Restaurants</h1>
+    <form id="login_form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    Username: <input type="text" name="username" value="" size="50" />
+    <br />
+    Password: <input type="password" name="password" value="" size="50" />
+    <br />
+    <input type="submit" value="submit" />
+    </form>
 
-{% if user.is_authenticated %}
-howdy {{ user.username }}!
-{% else %}
-hey there partner!
-{% endif %}
+    {% if user.is_authenticated %}
+        Welcome {{ user.username }}!<br />
+        <a href="{% url 'index' %}">Return to the homepage.</a><br />
+    {% else %}
+        Welcome to West End Restaurants! Login or Register for a personalised experience!<br />
+        <a href="{% url 'index' %}">Return to the homepage.</a><br />
+        <a href="{% url 'register' %}">Register Here</a><br />
+    {% endif %}
 {% endblock %}  
