@@ -6,7 +6,6 @@ from WER_app.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
@@ -35,7 +34,9 @@ def login(request):
     return render(request, 'WER_app/login.html')
 
 def sign_up(request):
+
     return render(request, 'WER_app/sign_up.html')    
+
 
 def register(request):
 	registered = False
@@ -108,10 +109,9 @@ def review(request, page_name_slug):
         context_dict['reviews'] = reviews
     except Page.DoesNotExist:
         context_dict['page'] = None
-        context_dict['pages'] = None
-        
+        context_dict['pages'] = None 
 
-    return render(request, 'WER_app/review.html', context_dict)
+    return render(request, 'WER_app/review.html', context_dict)    
 
 def review_sample(request):
     review_list = Review.objects.order_by('reviewID') 
@@ -119,3 +119,4 @@ def review_sample(request):
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/review_sample.html', context_dict)
+
