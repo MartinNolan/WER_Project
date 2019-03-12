@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from WER_app.models import Review, Page
-from WER_app.forms import UserForm, UserProfileForm
+from WER_app.forms import UserForm, UserProfileForm
+
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
+from django.urls import reverse
+
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
+from django.contrib.auth import logout
+
 
 def index(request):
     return render(request, 'WER_app/index.html')
