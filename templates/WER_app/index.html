@@ -68,4 +68,35 @@
 		</p>
 </div>
 
+<div>  
+<ul>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'index' %}">Index</a></li>
+    <li><a href="{% url 'register' %}">Sign Up</a></li>
+    <li><a href="{% url 'login' %}">Login</a><li>
+</ul>
+            </div>
+   <div> 
+{% if user.is_authenticated %}
+    howdy {{ user.username }}!
+{% else %}
+    hey there partner!
+{% endif %}
+    </div>
+    
+    <div>
+<ul>
+{% if user.is_authenticated %}
+    <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+    <li><a href="{% url 'login' %}">Sign In</a></li>
+    <li><a href="{% url 'register' %}">Sign Up</a></li>
+{% endif %}
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'index' %}">Index</a></li>
+</ul>
+
+        </div>
+
 		{% endblock %}

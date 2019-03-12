@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'WER_app',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -140,4 +140,4 @@ PASSWORD_HASHERS = [
 'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 ]
 
-LOGIN_URL = '/WER_app/login/'
+LOGIN_URL = '/WER_app/login/'

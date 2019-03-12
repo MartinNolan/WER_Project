@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from WER_app.models import Review, Page
 from WER_app.forms import UserForm, UserProfileForm
-
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from datetime import datetime
+
 
 
 def index(request):
@@ -29,9 +30,6 @@ def tAndC(request):
     
 def contact(request):
     return render(request, 'WER_app/contact-us.html')
-
-def login(request):
-    return render(request, 'WER_app/login.html')
 
 def sign_up(request):
 
@@ -65,7 +63,6 @@ def register(request):
 	return render(request, 'WER_app/register.html', {'user_form': user_form, 
 	'profile_form': profile_form, 'registered': registered})
 
-
 def user_login(request):
 	if request.method == 'POST':
 		username = request.POST.get('username')
@@ -77,7 +74,7 @@ def user_login(request):
 				login(request, user)
 				return HttpResponseRedirect(reverse('index'))
 			else:
-				return HttpResponse("Your West End Restaurant account is disabled.")
+				return HttpResponse("Your Rango account is disabled.")
 		else:
 			print("Invalid login details: {0}, {1}".format(username, password))
 			return HttpResponse("Invalid login details supplied.")
@@ -92,7 +89,6 @@ def restricted(request):
 @login_required
 def user_logout(request):
 	logout(request)
-
 	return HttpResponseRedirect(reverse('index'))
 
 def review(request, page_name_slug):
