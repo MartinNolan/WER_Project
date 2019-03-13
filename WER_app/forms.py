@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django import forms
 from WER_app.models import UserProfile, Review, Page
 from django.contrib.auth.models import User
@@ -25,3 +26,25 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ('reviewID','title','comment','price','quality','atmosphere','avgRating',)
+=======
+from django import forms
+from WER_app.models import UserProfile, Review, Page
+from django.contrib.auth.models import User
+
+class Reviews(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ('reviewID','title','comment','price','quality','atmosphere','avgRating',)
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+            model = UserProfile
+            fields = ('picture',)
+>>>>>>> b79aceadda0c98ee7395a17774242be72273a2e1
