@@ -101,23 +101,21 @@ def populate():
                 
 
 
-    id = 0
     for review, review_data in reviews.items():
         for p in review_data["pages"]:
-            r = (add_review(id, p["title"], p["comment"], p["price"], p["quality"], p["atmosphere"]))
-            id+=1
+            r = (add_review(p["title"], p["comment"], p["price"], p["quality"], p["atmosphere"]))
            
         
         add_page(r, p["title"], review_data["image"] , review_data["description"], review_data["address"], review_data["openingHours"], review_data["onCampus"])
-    #print(str(r))
+
         
         
     for r in Review.objects.all(): 
          print(str(r))
 
     
-def add_review(reviewID, title, comment, price, quality, atmosphere):
-    r = Review.objects.get_or_create(reviewID=reviewID)[0]
+def add_review(title, comment, price, quality, atmosphere):
+    r = Review.objects.create()
     #date = current date
     r.title=title
     r.comment = comment  

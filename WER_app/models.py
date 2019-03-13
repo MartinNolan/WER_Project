@@ -7,12 +7,12 @@ from django.contrib.auth.models import User
 
 class Review(models.Model):
    
-    reviewID = models.IntegerField(unique=True)
+    reviewID = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50, default="Default")
     #user
     
     comment = models.CharField(max_length=200, default="Default")  
-    date = models.DateField(auto_now=True)
+    date_modified = models.DateTimeField(auto_now_add=True)
     price = models.IntegerField(default=0)
     quality = models.IntegerField(default=0)
     atmosphere = models.IntegerField(default=0)

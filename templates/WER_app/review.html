@@ -57,12 +57,19 @@
         {% if reviews %} 
         <ul> 
             {% for review in reviews %} 
-                <li> {{review.comment}} - Rating: {{review.avgRating}} </li> 
+                <li>{{review.date_modified}} - {{review.comment}} - Rating: {{review.avgRating}} </li> 
             {% endfor %} 
         </ul> {% else %} 
             <strong>There are no categories present.</strong> 
         {% endif %} 
         </div>
+        {% if pages %}
+            {% for page in pages %}
+        <div>
+            <a href="/WER_app/add_review/{{ page.slug }}">Add a New Review</a><br />
+        </div>
+        {% endfor %}
+        {% endif %}
         
         <div class="footer">
             <ul>
