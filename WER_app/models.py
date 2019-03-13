@@ -30,6 +30,9 @@ class Page(models.Model):
     description = models.CharField(max_length=128, default="Default")
     address = models.CharField(max_length=128, default="Default")
     openingHours = models.CharField(max_length=128, default="Default")
+    longitude = models.DecimalField(max_digits=15, decimal_places=10, default = 0)
+    latitude = models.DecimalField(max_digits=15, decimal_places=10, default = 0)
+    onCampus = models.BooleanField(default=False)
     slug = models.SlugField(blank=True)
     
     

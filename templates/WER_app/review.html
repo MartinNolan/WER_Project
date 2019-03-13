@@ -3,6 +3,14 @@
 
 <html>
     <head lang="en">
+        <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 25%;
+          float: right;/* The width is the width of the web page */
+       }
+    </style>
         <meta charset="UTF-8" />
         <title>
             West End Restaurants
@@ -48,9 +56,26 @@
                <h2> {{page.description}} </h2>
                <h3> {{page.address}} </h3>
                <h4> {{page.openingHours}} </h4>
-               
+                <div id="map"></div>
+                <script>
+                // Initialize and add the map
+                function initMap() {
+                 // The location of Uluru
+                  var uluru = {lat: {{page.latitude}}, lng: {{page.longitude}}};
+                  // The map, centered at Uluru
+                  var map = new google.maps.Map(
+                  document.getElementById('map'), {zoom: 4, center: uluru});
+                 // The marker, positioned at Uluru
+                 var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+                </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6zeXEmA7r55_YKB5Zy6pXIiuarsCBhdE&callback=initMap">
+            </script>
      
-      
+          
+        
+    
             {% endfor %}
         {% endif %}
         
