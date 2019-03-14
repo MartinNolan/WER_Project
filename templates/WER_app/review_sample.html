@@ -1,57 +1,9 @@
-<!DOCTYPE html>
-{% load staticfiles %}
+{% extends 'WER_app/base.html' %}
 
-<html>
-    <head lang="en">
-        <style>
-            #map {
-                height: 50px;
-                width: 25%;
-            }
-        </style>
-        <meta charset="UTF-8" />
-        <title>
-            West End Restaurants
-
-        </title>
-        <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}" />
-    </head>
-    <body style="background-image: url({% static 'images/Background.jpg' %})">
-        <div class="navbar">
-        <div style="float:left;">
-        <h1 style="margin: 20px;"> West End Restaurants </h1>
-        </div>
-            
-        <div class="wrap">
-            <div class="search">
-                <input type="text" class="searchTerm" placeholder="Search for a restaurant">
-                <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
-            
-            
-       
-        <div class="login-container">
-            <form action="/action_page.php">
-            <input type="text" placeholder="Username" name="username">
-            <input type="text" placeholder="Password" name="psw">
-                <button type="submit">Login</button>
-                <a href="x">Forgotten password?</a>
-            </form>
-        </div>
-        <div style= "float: right; width: 30%; top: 30%; left: 30%;">
-            Or login using Facebook or Twitter
-            
-        </div>
-        </div>
-        <div>
             {% block body_block %}
           
         
             
-            </div>
             
         {% if pages %}
             {% for page in pages %}
@@ -64,15 +16,3 @@
             {% endblock %}
         </div>
         
-        
-        <div class="footer">
-            <ul>
-               <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">FAQ</a> 
-                <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">About Us</a> 
-                <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">T&Cs</a> 
-                <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">Contact Us</a> 
-            </ul>
-
-        </div>
-        </div>
- 
