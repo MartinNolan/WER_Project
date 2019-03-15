@@ -1,12 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from WER_app.models import Review, Page
-<<<<<<< HEAD
 from WER_app.forms import UserForm, UserProfileForm, ReviewForm
-
-=======
-from WER_app.forms import UserForm, UserProfileForm
->>>>>>> b79aceadda0c98ee7395a17774242be72273a2e1
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
