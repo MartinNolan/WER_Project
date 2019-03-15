@@ -1,47 +1,31 @@
-<!DOCTYPE html>
+{% extends 'WER_app/base.html' %}
 
-<html>
-	<head>
-		<title>
-                West End Restaurants
-		</title>
-		<link href="StyleSheet2.css" rel="stylesheet" type="text/css">
+<  {% block body_block %}
+          
+		
+		 <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky" >
 
-		</head>
-		
-		
-		<body>
-		
-		
-		<div class="navbar">
-		<div style="float:left;">
-		<h1 style="margin: 20px;"> West End Restaurants </h1>
-		</div>
-            
-		<div class="wrap">
-			<div class="search">
-				<input type="text" class="searchTerm" placeholder="Search for a restaurant">
-				<button type="submit" class="searchButton">
-				<i class="fa fa-search"></i>
-				</button>
-			</div>
-		</div>
-            
-		<div class="login-container">
-			<form action="/action_page.php">
-			<input type="text" placeholder="Username" name="username">
-			<input type="text" placeholder="Password" name="psw">
-                <button type="submit">Login</button>
-                <a href="x">Forgotten password?</a>
-            </form>
-		</div>
-		
-            
-        <div style= "float: right; width: 30%; top: 30%; left: 30%;">
-            Or login using Facebook or Twitter
-            
-            </div>
-		</div>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Filter Results</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  On-campus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Off-campus
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
 		
 		<div style="margin: 20px;">
             <ul class="breadcrumb">
@@ -160,15 +144,4 @@ Hibernian were flying and had a good chance to extend their lead soon after when
     
     </div>
 
-		<div class="footer">
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">FAQ</a>
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">About Us</a>
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">T&Cs</a>
-			<a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">Contact Us</a>
-		
-		
-		</div>
-		
-		
-		</body>
-</html>
+ {% endblock %}
