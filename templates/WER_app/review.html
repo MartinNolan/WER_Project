@@ -1,43 +1,8 @@
-<!DOCTYPE html>
+{% extends 'WER_app/base.html' %}
 {% load staticfiles %}
 
-<html>
-    <head lang="en">
-        <meta charset="UTF-8" />
-        <title>
-            West End Restaurants
+{% block body_block %}
 
-        </title>
-        <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}" />
-    </head>
-    <body style="background-image: url({% static 'images/Background.jpg' %})">
-        <div class="navbar">
-        <div style="float:left;">
-        <h1 style="margin: 20px;"> West End Restaurants </h1>
-        </div>
-            
-        <div class="wrap">
-            <div class="search">
-                <input type="text" class="searchTerm" placeholder="Search for a restaurant">
-                <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
-            
-        <div class="login-container">
-            <form action="/action_page.php">
-            <input type="text" placeholder="Username" name="username">
-            <input type="text" placeholder="Password" name="psw">
-                <button type="submit">Login</button>
-                <a href="x">Forgotten password?</a>
-            </form>
-        </div>
-        <div style= "float: right; width: 30%; top: 30%; left: 30%;">
-            Or login using Facebook or Twitter
-            
-        </div>
-        </div>
         <div>
             <div>
         {% if pages %}
@@ -48,9 +13,26 @@
                <h2> {{page.description}} </h2>
                <h3> {{page.address}} </h3>
                <h4> {{page.openingHours}} </h4>
-               
+                <div id="map"></div>
+                <script>
+                // Initialize and add the map
+                function initMap() {
+                 // The location of Uluru
+                  var uluru = {lat: {{page.latitude}}, lng: {{page.longitude}}};
+                  // The map, centered at Uluru
+                  var map = new google.maps.Map(
+                  document.getElementById('map'), {zoom: 4, center: uluru});
+                 // The marker, positioned at Uluru
+                 var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+                </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6zeXEmA7r55_YKB5Zy6pXIiuarsCBhdE&callback=initMap">
+            </script>
      
-      
+          
+        
+    
             {% endfor %}
         {% endif %}
         
@@ -63,6 +45,7 @@
             <strong>There are no categories present.</strong> 
         {% endif %} 
         </div>
+<<<<<<< HEAD
         {% if pages %}
             {% for page in pages %}
         <div>
@@ -80,6 +63,7 @@
             </ul>
 
         </div>
+=======
+>>>>>>> 16bb8f8c4542c88f6bc304048c0363cab8f2d6d9
         </div>
-    </body>
-</html>
+{% endblock %}
