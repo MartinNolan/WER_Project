@@ -1,4 +1,7 @@
-<!DOCTYPE html> 
+{% extends 'WER_app/base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
     <html> 
         <head> 
             <title>Review</title> 
@@ -11,18 +14,13 @@
             {% for page in pages %}
      
                <h1><u> {{page.title}} </u></h1>
-               <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
-               <h2> {{page.description}} </h2>
-               <h3> {{page.address}} </h3>
-               <h4> {{page.openingHours}} </h4>
-               
      
       
             {% endfor %}
         {% endif %}
         </div>
             <div> 
-                <form id="review_form" method="post" action="/WER_app/add_review/">
+                <form id="review_form" method="post" action="/WER_app/add_review/{{page.slug}}/">
                     {% csrf_token %}
                     {% for hidden in form.hidden_fields %} 
                         {{ hidden }} 
@@ -30,10 +28,12 @@
                     {% for field in form.visible_fields %} 
                         {{ field.errors }} 
                         {{ field.help_text }} 
-                        {{ field }} 
+                        {{ field }}
                     {% endfor %} 
+                    <input id="id_title" name="title" type="hidden" value="{{page.title}}" /> 
                     <input type="submit" name="submit" value="Create Review" /> 
                 </form> 
             </div> 
         </body>
+    {% endblock %}
    </html>

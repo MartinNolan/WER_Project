@@ -115,7 +115,6 @@ def review(request, page_name_slug):
     
 def add_review(request, page_name_slug):
     form = ReviewForm()
-    
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         
@@ -124,9 +123,11 @@ def add_review(request, page_name_slug):
             return index(request)
         else:
             print(form.errors)
-            
+           
     context_dict = {}
     try:
+    
+        context_dict['form'] = form
         page = Page.objects.get(slug=page_name_slug)
         pages = Page.objects.filter(title=page.title)
         context_dict['pages'] = pages
@@ -134,7 +135,7 @@ def add_review(request, page_name_slug):
     except Page.DoesNotExist:
         context_dict['page'] = None
         context_dict['pages'] = None 
-    return render(request, 'WER_app/add_review.html', {'form': form}, context_dict)
+    return render(request, 'WER_app/add_review.html', context_dict)
 
 def review_sample(request):
     review_list = Review.objects.order_by('reviewID') 

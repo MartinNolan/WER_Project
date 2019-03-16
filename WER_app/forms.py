@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 
 class ReviewForm(forms.ModelForm):
-    views = forms.CharField(widget=forms.HiddenInput(), initial="Paesano Pizza")
+    title = forms.CharField(widget=forms.HiddenInput(), initial="")
     comment = forms.CharField(max_length=128, help_text="Please enter a comment.")
     price = forms.IntegerField(help_text="Rate the price.")
     quality = forms.IntegerField(help_text="Rate the quality.")

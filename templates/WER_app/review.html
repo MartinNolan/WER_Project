@@ -10,27 +10,28 @@
      
                <h1><u> {{page.title}} </u></h1>
                <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
-               <h2> {{page.description}} </h2>
-               <h3> {{page.address}} </h3>
-               <h4> {{page.openingHours}} </h4>
-                <div id="map"></div>
+               
+               <div id="map"></div>
                 <script>
                 // Initialize and add the map
                 function initMap() {
                  // The location of Uluru
-                  var uluru = {lat: {{page.latitude}}, lng: {{page.longitude}}};
+                  var coords = {lat: {{page.latitude}}, lng: {{page.longitude}}};
                   // The map, centered at Uluru
                   var map = new google.maps.Map(
-                  document.getElementById('map'), {zoom: 4, center: uluru});
+                  document.getElementById('map'), {zoom: 10, center: coords});
                  // The marker, positioned at Uluru
-                 var marker = new google.maps.Marker({position: uluru, map: map});
+                 var marker = new google.maps.Marker({position: coords, map: map});
                 }
                 </script>
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6zeXEmA7r55_YKB5Zy6pXIiuarsCBhdE&callback=initMap">
             </script>
-     
-          
+               
+               
+               <h2> {{page.description}} </h2>
+               <h3> {{page.address}} </h3>
+               <h4> {{page.openingHours}} </h4>
         
     
             {% endfor %}
@@ -45,9 +46,10 @@
             <strong>There are no categories present.</strong> 
         {% endif %} 
         </div>
-<<<<<<< HEAD
         {% if pages %}
             {% for page in pages %}
+            
+            
         <div>
             <a href="/WER_app/add_review/{{ page.slug }}">Add a New Review</a><br />
         </div>
@@ -62,8 +64,5 @@
                 <a href="https://www.w3schools.com" style="padding-right : 300px; color:white;">Contact Us</a> 
             </ul>
 
-        </div>
-=======
->>>>>>> 16bb8f8c4542c88f6bc304048c0363cab8f2d6d9
         </div>
 {% endblock %}
