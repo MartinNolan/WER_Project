@@ -2,18 +2,19 @@ from django.db import models
 from django.contrib import admin
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 # Create your models here.
 
 
 class Review(models.Model):
    
-    reviewID = models.IntegerField(unique=True)
+    reviewID = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50, default="Default")
     #user
     
     comment = models.CharField(max_length=200, default="Default")  
-    date = models.DateField(auto_now=True)
+    date_modified = models.DateTimeField(auto_now_add=True)
     price = models.IntegerField(default=0)
     quality = models.IntegerField(default=0)
     atmosphere = models.IntegerField(default=0)
@@ -22,6 +23,9 @@ class Review(models.Model):
     def __str__(self):
         return str(self.reviewID)
 
+    def save(self, *args, **kwargs):
+        self.avgRating = (self.price + self.quality + self.atmosphere)/3 
+        super(Review, self).save(*args, **kwargs)
         
 class Page(models.Model): 
 
@@ -45,7 +49,7 @@ class Page(models.Model):
         return self.title
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     picture = models.ImageField(upload_to='profile_images', blank=True)
 
     def __str__(self):

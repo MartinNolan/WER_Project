@@ -67,11 +67,11 @@ min-height: 1000px;">
              <div style="color: white;">hey there partner!</div>
 {% endif %}
     </div>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    <form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank">
+    <input name="sitesearch" type="hidden" value="example.com">
+            <input autocomplete="on" class="form-control search" name="q" placeholder="Search in WER" required="required"  type="text" style="float:left; width:75%">
+    <button class="button" type="submit" style="float:right">Search</button>
     </form>
-  </div>
 </nav>
 
 

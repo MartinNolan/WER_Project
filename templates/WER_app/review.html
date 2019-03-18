@@ -3,47 +3,91 @@
 
 {% block body_block %}
 
+            <style> 
+                #Review {
+                  background: #f8f8ff;
+                  opacity: 1;
+                  padding: 10px;
+                }
+                
+            </style>
         <div>
             <div>
         {% if pages %}
             {% for page in pages %}
-     
+        
                <h1><u> {{page.title}} </u></h1>
                <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
-               <h2> {{page.description}} </h2>
-               <h3> {{page.address}} </h3>
-               <h4> {{page.openingHours}} </h4>
-                <div id="map"></div>
+               
+               <div id="map" style="float:right; position:relative; width:35%; height:350px"></div>
                 <script>
                 // Initialize and add the map
                 function initMap() {
                  // The location of Uluru
-                  var uluru = {lat: {{page.latitude}}, lng: {{page.longitude}}};
+                  var coords = {lat: {{page.latitude}}, lng: {{page.longitude}}};
                   // The map, centered at Uluru
                   var map = new google.maps.Map(
-                  document.getElementById('map'), {zoom: 4, center: uluru});
+                  document.getElementById('map'), {zoom: 10, center: coords});
                  // The marker, positioned at Uluru
-                 var marker = new google.maps.Marker({position: uluru, map: map});
+                 var marker = new google.maps.Marker({position: coords, map: map});
                 }
                 </script>
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6zeXEmA7r55_YKB5Zy6pXIiuarsCBhdE&callback=initMap">
             </script>
-     
-          
+               
+               
+               <h4> {{page.description}} </h4>
+               <h4> Address: {{page.address}} </h4>
+               <h4> Opening Hours: {{page.openingHours}} </h4>
         
     
             {% endfor %}
         {% endif %}
         
         {% if reviews %} 
-        <ul> 
+         
             {% for review in reviews %} 
-                <li> {{review.comment}} - Rating: {{review.avgRating}} </li> 
+                <ul id = "Review">
+                
+                <ul>{{review.date_modified}}
+                    {{review.comment}} - Rating: {% with ''|center:review.avgRating as range %}
+                    {% for _ in range %}
+                         <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                {% endwith %}
+                
+                </ul>
+                
+                </ul> 
             {% endfor %} 
-        </ul> {% else %} 
+        {% else %} 
             <strong>There are no categories present.</strong> 
         {% endif %} 
         </div>
-        </div>
+        {% if pages %}
+            {% for page in pages %}
+            
+            {% if user.is_authenticated %}
+                <div>
+                    <a href="/WER_app/add_review/{{ page.slug }}">Add a New Review</a><br />
+                </div>
+            {% else %}
+                <p> Login to add a review! </p>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+
+       
+        
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+
+        <style>
+        .checked {
+            color: #f4f142;
+        }
+        </style>
+           
 {% endblock %}

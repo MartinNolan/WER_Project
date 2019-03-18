@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from WER_app.models import Review, Page
-from WER_app.forms import UserForm, UserProfileForm
+from WER_app.forms import UserForm, UserProfileForm, ReviewForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
+#from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
@@ -91,10 +91,12 @@ def user_logout(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('index'))
 
+    
 def review(request, page_name_slug):
     #review_list = Review.objects.order_by('reviewID')[:4] 
     #pages = Page.objects.order_by('title')[:4]
     #context_dict = {'reviews': review_list, 'pages':pages}
+    
     context_dict = {}
     try:
         page = Page.objects.get(slug=page_name_slug)
@@ -103,15 +105,42 @@ def review(request, page_name_slug):
         context_dict['pages'] = pages
         context_dict['page'] = page
         context_dict['reviews'] = reviews
+        
+        #name
     except Page.DoesNotExist:
         context_dict['page'] = None
         context_dict['pages'] = None 
 
     return render(request, 'WER_app/review.html', context_dict)    
+    
+def add_review(request, page_name_slug):
+    form = ReviewForm()
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+           
+    context_dict = {}
+    try:
+    
+        context_dict['form'] = form
+        page = Page.objects.get(slug=page_name_slug)
+        pages = Page.objects.filter(title=page.title)
+        context_dict['pages'] = pages
+        context_dict['page'] = page
+    except Page.DoesNotExist:
+        context_dict['page'] = None
+        context_dict['pages'] = None 
+    return render(request, 'WER_app/add_review.html', context_dict)
 
 def review_sample(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')
+    print(pages[0])
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/review_sample.html', context_dict)
