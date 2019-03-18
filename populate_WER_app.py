@@ -120,7 +120,7 @@ def add_review(title, comment, price, quality, atmosphere):
     r.price = price
     r.quality = quality
     r.atmosphere = atmosphere
-    r.avgRating = (price+quality+atmosphere)/3
+    #r.avgRating = (price+quality+atmosphere)/3
     r.save()
     return r
     

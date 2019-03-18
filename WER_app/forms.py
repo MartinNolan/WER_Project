@@ -12,7 +12,7 @@ class ReviewForm(forms.ModelForm):
     price = forms.IntegerField(help_text="Rate the price.")
     quality = forms.IntegerField(help_text="Rate the quality.")
     atmosphere = forms.IntegerField(help_text="Rate the atmosphere.")
-    avgRating = forms.IntegerField(widget=forms.HiddenInput(), initial=4)
+    avgRating = forms.IntegerField(widget=forms.HiddenInput(), initial = 0)
     
     class Meta:
         model = Review

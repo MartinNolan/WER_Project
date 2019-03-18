@@ -1,18 +1,36 @@
 {% extends 'WER_app/base.html' %}
 
+     
+
             {% block body_block %}
           
-        
+           <style> 
+                #Restaurant {
+                  background: #f8f8ff;
+                  opacity: 0.8;
+                  padding: 40px;
+                }
+                
+            </style>
             
             
         {% if pages %}
+            
             {% for page in pages %}
-                    <li> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a> </li>
+                    <ul id="Restaurant"> 
+                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a>
+                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:100px;height:120px;" />
+                        </ul>
+                    </ul>
             {% endfor %}
+             
         {% endif %}
        
         
         <div> 
             {% endblock %}
         </div>
+        
+        
+        
         

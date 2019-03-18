@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib import admin
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 # Create your models here.
 
@@ -22,6 +23,9 @@ class Review(models.Model):
     def __str__(self):
         return str(self.reviewID)
 
+    def save(self, *args, **kwargs):
+        self.avgRating = (self.price + self.quality + self.atmosphere)/3 
+        super(Review, self).save(*args, **kwargs)
         
 class Page(models.Model): 
 
