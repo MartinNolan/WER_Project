@@ -4,7 +4,7 @@ from WER_app.models import Review, Page
 from WER_app.forms import UserForm, UserProfileForm, ReviewForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
-#from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
