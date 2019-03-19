@@ -1,7 +1,5 @@
 {% extends 'WER_app/base.html' %}
 
-     
-
             {% block body_block %}
           
            <style> 
@@ -13,22 +11,23 @@
                 
             </style>
             
-        
         <div>
             <a href="/WER_app/review_sample/" class="btn btn-lg btn-secondary">All</a>
             <a href="/WER_app/onCampus/" class="btn btn-lg btn-secondary">On Campus</a>
-            <a href="/WER_app/offCampus/" class="btn btn-lg btn-secondary">Off Campus</a>         
+            <a href="/WER_app/offCampus/" class="btn btn-lg btn-secondary">Off Campus</a>
         </div>
         
         <div>    
         {% if pages %}
             
             {% for page in pages %}
+                {% if page.onCampus %}
                     <ul id="Restaurant"> 
                         <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a>
                         <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:160px;height:120px;" />
                         </ul>
                     </ul>
+                    {% endif %}
             {% endfor %}
              
         {% endif %}
