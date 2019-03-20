@@ -96,3 +96,7 @@ navbar-dark .navbar-text{color:white}.navbar-dark .navbar-text a{color:#fff}.nav
   align-items: center;
   justify-content: center;
 }
+
+.hidden{
+  display: none;
+}
