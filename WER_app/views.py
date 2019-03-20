@@ -74,7 +74,7 @@ def user_login(request):
 				login(request, user)
 				return HttpResponseRedirect(reverse('index'))
 			else:
-				return HttpResponse("Your Rango account is disabled.")
+				return HttpResponse("Your WER account is disabled.")
 		else:
 			print("Invalid login details: {0}, {1}".format(username, password))
 			return HttpResponse("Invalid login details supplied.")
@@ -140,6 +140,7 @@ def add_review(request, page_name_slug):
 def review_sample(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')
+    print(pages[0])
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/review_sample.html', context_dict)
@@ -147,7 +148,6 @@ def review_sample(request):
 def onCampus(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')
-    
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/onCampus.html', context_dict)

@@ -9,6 +9,16 @@
                   opacity: 1;
                   padding: 10px;
                 }
+                #Views {
+                  position: fixed;
+                  left: 50%;
+                  bottom: 20px;
+                  transform: translate(-50%, -50%);
+                  margin: 0 auto;
+                }
+                .checked {
+                  color: #f4f142;
+                }
                 
             </style>
         <div>
@@ -80,14 +90,12 @@
 
        
         
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+        <div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </div>
+        <div id="Views">
+            <p style="text-align:center;">Page Views: {{page.views}}</p>
+        </div>
 
-        <style>
-        .checked {
-            color: #f4f142;
-        }
-        </style>
            
 {% endblock %}
