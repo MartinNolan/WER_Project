@@ -88,15 +88,20 @@ navbar-dark .navbar-text{color:white}.navbar-dark .navbar-text a{color:#fff}.nav
   font-weight: 700;
 }
 
-.container4 {
+.container3 {
   height: 100%;
   width: 100%;
   display: flex;
   position: fixed;
   align-items: center;
   justify-content: center;
+    text-align: center;
 }
 
 .hidden{
   display: none;
 }
+
+a:hover .smallbox {background-color:blue;}
+a:visited .smallbox {background-color:green;}
+a:visited .smallbox:hover {background-color:blue;}

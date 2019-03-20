@@ -7,15 +7,16 @@
 {% endblock %}
 
 {% block body_block %}
-    <div class="hidden">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <main role="main" class="inner cover">
-        <h1 class="cover-heading" style = "color: white; text-align: center;">Welcome to West End Restaurants</h1>
-        <p class="lead" style="color: white; text-align: center;">View, rate and compare cafes and restaurants in the bustling West End of Glasgow</p>
-
-        <a href="/WER_app/review_sample/" class="btn btn-lg btn-secondary">Get Started</a>
+              <div class="hidden">
+        <h1 class="cover-heading" style = "color: white; text-align: center;">Welcome to </h1>
+          <h1 class="cover-heading" style = "color: white; text-align: center;">West End Restaurants</h1>
+                  <p class="lead" style="color: white; text-align: center;">View, rate and compare cafes and restaurants in the bustling West End of Glasgow</p></div>
+          <div>
+        <a href="/WER_app/review_sample/" style="text-align:center;display:block;">Get Started</a>
+          </div>
       </main>
-</div>
 </div>
 
 {% endblock %}
