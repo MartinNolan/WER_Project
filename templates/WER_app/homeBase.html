@@ -86,10 +86,11 @@ min-height: 1000px;">
              <div style="color: white; text-align: center;">Welcome {{ user.username }}!</div>
 {% endif %}
     </div>
-    <form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank">
-    <input name="sitesearch" type="hidden" value="example.com">
-            <input autocomplete="on" class="form-control search" name="q" placeholder="Search for a restaurant." required="required"  type="text" style="float:left; width:75%">
-    <button class="button" type="submit" style="float:right">Search</button>
+    <form id="searchform" action="{% url 'search' %}" method="GET" accept-charset="utf-8">
+      <button class="searchbutton" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
     </form>
 </nav>
 
