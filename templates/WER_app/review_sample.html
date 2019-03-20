@@ -6,7 +6,11 @@
           
            <style> 
                 #Restaurant {
-                  background: #f8f8ff;
+                  background: #c1c1c1;
+                  color: #09090a;
+                  font-family: helvetica;
+                  font-size:20px;
+                  font-style:italic;
                   opacity: 0.8;
                   padding: 40px;
                 }
@@ -25,7 +29,7 @@
             
             {% for page in pages %}
                     <ul id="Restaurant"> 
-                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a>
+                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a><br />
                         <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:160px;height:120px;" />
                         </ul>
                     </ul>
