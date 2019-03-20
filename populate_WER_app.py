@@ -114,7 +114,7 @@ def populate():
          "price":4,
          "quality":4,
          "atmosphere":5}]
-    The_Left_Bank = [{"title":"The_Left_Bank",
+    The_Left_Bank = [{"title":"The Left Bank",
          "comment":"Friendly",
          "price":4,
          "quality":4,
