@@ -128,7 +128,6 @@ def populate():
                 "Food to Go": {"pages": Food_to_Go, "image":"Food_for_Thought.jpg", "description":"Offers everything you need for breakfast on the go, lunch on the run or an eveningsnack to sustain you during late study sessions.", "address":"Fraser Building, 65 Hillhead St, Glasgow G12 8QF", "openingHours":"Mon-Thu 08:00 - 18:00, Fri 08:00 - 16:30", "onCampus":True, "latitude":55.8733697, "longitude":-4.2911344},
                 "Cafe_Piccolino": {"pages": Cafe_Piccolino, "image":"Cafe_Piccolino.jpg", "description":"Proud to serve Orang Utan coffee supporting an important Sumatran conservation project", "address":"Ashton Ln, Glasgow G12 8QR", "openingHours":"Mon-Fri 08:30 - 15:00 ", "onCampus":True, "latitude":55.8733697, "longitude":-4.2911344},
                 "Food in Focus": {"pages": Food_in_Focus, "image":"Food_in_Focus.jpg", "description":"Comfy seating in a newly decorated area for library users and vending machines accessible during library opening hours", "address":"University of Glasgow, Hillhead St, Glasgow G12 8QE", "openingHours":"Mon- Thu: 10:00 - 20:00\nFri: 10:00 - 17:00\nSat/Sun: 10:30 - 17:00", "onCampus":True, "latitude":55.8733697, "longitude":-4.2911344},
-                "Food for Thought": {"pages": Food_for_Thought, "image":"Food_for_Thought.jpg", "description":"Cafe in the Fraser Building for students, staff and visitors to the campus, serving hot meals and snacks.t", "address":"Fraser Building, 65 Hillhead St, Glasgow G12 8QF", "openingHours":"Mon-Fri 11:00 - 15:00 ", "onCampus":False, "latitude":55.8733697, "longitude":-4.2911344},
                 "Food Factory": {"pages": Food_Factory, "image":"Food_Factory.jpg", "description":"The Queen Margaret Union is the one of four students' unions at the University of Glasgow, Scotland. Founded in 1890, it caters to the social and cultural needs of its members by providing a range of services including entertainment, catering, shop facilities, bars and games.", "address":"22 University Gardens, Glasgow G12 8QN", "openingHours":"Mon - Fri 08:00 - 22:00", "onCampus":True, "latitude":55.8727845, "longitude":-4.2958293},
                 "G12 Cafe": {"pages": G12_Cafe, "image":"G12_Cafe.jpg", "description":"G12,  the glass fronted Café/Bar running along University Avenue. G12 will offer a unique environment completely different to anything on offer at GUU.", "address":"42 University AveGlasgow G12 8NN", "openingHours":"Mon - Sun 08:00 - 23:00", "onCampus":True, "latitude":55.8737468, "longitude":-4.2936335},
                 "The Union Kitchen": {"pages": The_Union_Kitchen, "image":"The_Union_Kitchen.jpg", "description":"The Servery will never dissapoint students looking for a quick breakfast or a hearty meal. Serving breakfast till 11am and lunch thereafter, The GUU Servery provides the best value for money catering on campus.", "address":"32 University Avenue, Glasgow G12 8LX", "openingHours":"Mon - Fri 08:00 - 23:00, Sat 10:00 - 23:00", "onCampus":True, "latitude":55.8725958, "longitude":-4.2870855},
@@ -152,13 +151,11 @@ def populate():
     
 def add_review(title, comment, price, quality, atmosphere):
     r = Review.objects.create()
-    #date = current date
     r.title=title
     r.comment = comment  
     r.price = price
     r.quality = quality
     r.atmosphere = atmosphere
-    #r.avgRating = (price+quality+atmosphere)/3
     r.save()
     return r
     

@@ -37,6 +37,7 @@ class Page(models.Model):
     longitude = models.DecimalField(max_digits=15, decimal_places=10, default = 0)
     latitude = models.DecimalField(max_digits=15, decimal_places=10, default = 0)
     onCampus = models.BooleanField(default=False)
+    views = models.IntegerField(default=0)
     slug = models.SlugField(blank=True)
     
     
