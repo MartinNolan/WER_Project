@@ -145,3 +145,16 @@ def review_sample(request):
 
     return render(request, 'WER_app/review_sample.html', context_dict)
 
+def onCampus(request):
+    review_list = Review.objects.order_by('reviewID') 
+    pages = Page.objects.order_by('title')
+    context_dict = {'reviews': review_list, 'pages':pages}
+
+    return render(request, 'WER_app/onCampus.html', context_dict)
+    
+def offCampus(request):
+    review_list = Review.objects.order_by('reviewID') 
+    pages = Page.objects.order_by('title')
+    context_dict = {'reviews': review_list, 'pages':pages}
+
+    return render(request, 'WER_app/offCampus.html', context_dict)
