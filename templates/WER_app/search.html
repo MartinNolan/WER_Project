@@ -1,147 +1,33 @@
 {% extends 'WER_app/base.html' %}
-
-<  {% block body_block %}
+ <style> 
+                #Restaurant {
+                  background: #f8f8ff;
+                  opacity: 0.8;
+                  padding: 40px;
+                }
+                
+            </style>
+  {% block body_block %}
           
-		
-		 <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky" >
-
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Filter Results</span>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  On-campus
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Off-campus
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-		
-		<div style="margin: 20px;">
-            <ul class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Pictures</a></li>
-  <li><a href="#">Summer 15</a></li>
-  <li>Italy</li>
-</ul>
-            </div>
-            <p style="margin: 20px;"> Search reults for off campus</p>
-            </div>
     
     
     
     
 <div style="background-color: rgba(255,255,255,0.7); margin: 20px;">
     
-    <div class="dropdown">
-  <button class="dropbtn">Sort by</button>
-  <div class="dropdown-content">
-  <a href="#">Link 1</a>
-  <a href="#">Link 2</a>
-  <a href="#">Link 3</a>
-  </div>
-</div>
+
 
     <div>
-<img class="thumbnail" src="paesano.jpg">
-The Hibernian team of 2016 etched their names into the history books on Saturday afternoon by defeating Rangers 3-2 at Hampden Park and winning the William Hill Scottish Cup, writes Richard Payne.
+        {% if pages %}
+            
+            {% for page in pages %}
+                    <ul id="Restaurant"> 
+                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a>
+                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:160px;height:120px;" />
+                        </ul>
+                    </ul>
+            {% endfor %}
+        {% endif %}
 
-Over a century of hurt was washed away in 90 minutes as Alan Stubbs side created history at the National Stadium.
-
-Anthony Stokes got Hibernian off to the perfect start when he fired them ahead after only three minutes before Kenny Miller and Andy Halliday turned the tie on its head.
-
-That is until late on when Stokes scored his second of the afternoon to level it before captain and talisman David Gray nodded home a dramatic winner to spark scenes of wild celebration.
-
-There were two changes to the Hibernian line-up following their last outing with Liam Fontaine and Jason Cummings replacing Liam Henderson and James Keatings.
-
-The Easter Road men got off to a dream start when John McGinn held of a couple of challenges before finding Cummings, he fed Stokes on the left and the Irishman drove into the Rangers penalty box before firing beyond Wes Foderingham to score.
-
-Hibernian were flying and had a good chance to extend their lead soon after when Cummings' close range shot was blocked and Stokes' effort from the rebound was deflected wide.
-
-    </div>
-    
-        <div>
-<img class="thumbnail" src="paesano.jpg">
-The Hibernian team of 2016 etched their names into the history books on Saturday afternoon by defeating Rangers 3-2 at Hampden Park and winning the William Hill Scottish Cup, writes Richard Payne.
-
-Over a century of hurt was washed away in 90 minutes as Alan Stubbs side created history at the National Stadium.
-
-Anthony Stokes got Hibernian off to the perfect start when he fired them ahead after only three minutes before Kenny Miller and Andy Halliday turned the tie on its head.
-
-That is until late on when Stokes scored his second of the afternoon to level it before captain and talisman David Gray nodded home a dramatic winner to spark scenes of wild celebration.
-
-There were two changes to the Hibernian line-up following their last outing with Liam Fontaine and Jason Cummings replacing Liam Henderson and James Keatings.
-
-The Easter Road men got off to a dream start when John McGinn held of a couple of challenges before finding Cummings, he fed Stokes on the left and the Irishman drove into the Rangers penalty box before firing beyond Wes Foderingham to score.
-
-Hibernian were flying and had a good chance to extend their lead soon after when Cummings' close range shot was blocked and Stokes' effort from the rebound was deflected wide.
-
-    </div>
-    
-        <div>
-<img class="thumbnail" src="paesano.jpg">
-The Hibernian team of 2016 etched their names into the history books on Saturday afternoon by defeating Rangers 3-2 at Hampden Park and winning the William Hill Scottish Cup, writes Richard Payne.
-
-Over a century of hurt was washed away in 90 minutes as Alan Stubbs side created history at the National Stadium.
-
-Anthony Stokes got Hibernian off to the perfect start when he fired them ahead after only three minutes before Kenny Miller and Andy Halliday turned the tie on its head.
-
-That is until late on when Stokes scored his second of the afternoon to level it before captain and talisman David Gray nodded home a dramatic winner to spark scenes of wild celebration.
-
-There were two changes to the Hibernian line-up following their last outing with Liam Fontaine and Jason Cummings replacing Liam Henderson and James Keatings.
-
-The Easter Road men got off to a dream start when John McGinn held of a couple of challenges before finding Cummings, he fed Stokes on the left and the Irishman drove into the Rangers penalty box before firing beyond Wes Foderingham to score.
-
-Hibernian were flying and had a good chance to extend their lead soon after when Cummings' close range shot was blocked and Stokes' effort from the rebound was deflected wide.
-
-    </div>
-    
-        <div>
-<img class="thumbnail" src="paesano.jpg">
-The Hibernian team of 2016 etched their names into the history books on Saturday afternoon by defeating Rangers 3-2 at Hampden Park and winning the William Hill Scottish Cup, writes Richard Payne.
-
-Over a century of hurt was washed away in 90 minutes as Alan Stubbs side created history at the National Stadium.
-
-Anthony Stokes got Hibernian off to the perfect start when he fired them ahead after only three minutes before Kenny Miller and Andy Halliday turned the tie on its head.
-
-That is until late on when Stokes scored his second of the afternoon to level it before captain and talisman David Gray nodded home a dramatic winner to spark scenes of wild celebration.
-
-There were two changes to the Hibernian line-up following their last outing with Liam Fontaine and Jason Cummings replacing Liam Henderson and James Keatings.
-
-The Easter Road men got off to a dream start when John McGinn held of a couple of challenges before finding Cummings, he fed Stokes on the left and the Irishman drove into the Rangers penalty box before firing beyond Wes Foderingham to score.
-
-Hibernian were flying and had a good chance to extend their lead soon after when Cummings' close range shot was blocked and Stokes' effort from the rebound was deflected wide.
-
-    </div>
-    
-        <div>
-<img class="thumbnail" src="paesano.jpg">
-The Hibernian team of 2016 etched their names into the history books on Saturday afternoon by defeating Rangers 3-2 at Hampden Park and winning the William Hill Scottish Cup, writes Richard Payne.
-
-Over a century of hurt was washed away in 90 minutes as Alan Stubbs side created history at the National Stadium.
-
-Anthony Stokes got Hibernian off to the perfect start when he fired them ahead after only three minutes before Kenny Miller and Andy Halliday turned the tie on its head.
-
-That is until late on when Stokes scored his second of the afternoon to level it before captain and talisman David Gray nodded home a dramatic winner to spark scenes of wild celebration.
-
-There were two changes to the Hibernian line-up following their last outing with Liam Fontaine and Jason Cummings replacing Liam Henderson and James Keatings.
-
-The Easter Road men got off to a dream start when John McGinn held of a couple of challenges before finding Cummings, he fed Stokes on the left and the Irishman drove into the Rangers penalty box before firing beyond Wes Foderingham to score.
-
-Hibernian were flying and had a good chance to extend their lead soon after when Cummings' close range shot was blocked and Stokes' effort from the rebound was deflected wide.
-
-    </div>
-    
-    </div>
 
  {% endblock %}
