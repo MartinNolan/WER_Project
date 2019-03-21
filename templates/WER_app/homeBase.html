@@ -72,25 +72,21 @@ min-height: 1000px;">
              <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
 
                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                <a class="dropdown-item" href="{% url 'restricted' %}">Restricted Page</a>
         </div>
        </li>
         </ul>
          <div> 
              {% endif %}
-{% if user.is_authenticated %}
-             <div style="color: white; text-align: center;">Welcome {{ user.username }}!</div>
-{% endif %}
     </div>
      <form id="searchform" action="{% url 'search' %}" method="GET" accept-charset="utf-8">
-      <button class="searchbutton" type="submit">
+      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+            <button class="searchbutton" type="submit">
         <i class="fa fa-search"></i>
       </button>
-      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
     </form>
 </nav>
 

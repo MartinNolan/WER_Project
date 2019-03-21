@@ -19,11 +19,11 @@
                 }
                 .checked {
                   color: #f4f142;
-                
+                }
                 
             </style>
         <div style="padding:30px">
-            <a href="/WER_app/review_sample/" class="btn btn-lg btn-secondary" >Back to restaurants</a>
+            <a href="/WER_app/restaurant/" class="btn btn-lg btn-secondary" >Back to restaurants</a>
 </div>
             <div>
                 
@@ -89,7 +89,8 @@
         {% endif %} 
                 </div>
         </div>
-            <div style="padding: 30px;"}>
+           
+        <div style="padding: 60px;"}>
         {% if pages %}
             {% for page in pages %}
             
@@ -98,7 +99,7 @@
                     <a href="/WER_app/add_review/{{ page.slug }}">Add a New Review</a><br />
                 </div>
             {% else %}
-                <p> Login to add a review! </p>
+                <p> Log in to add a review! </p>
             {% endif %}
         {% endfor %}
         {% endif %}

@@ -57,6 +57,9 @@ def email(request):
     return render(request, "WER_app/contact-us.html", {'form': form})
 
 
+def invalidLogin(request):
+    return render(request, 'WER_app/invalidLogin.html')
+
 def register(request):
 	registered = False
 
@@ -98,7 +101,7 @@ def user_login(request):
 				return HttpResponse("Your WER account is disabled.")
 		else:
 			print("Invalid login details: {0}, {1}".format(username, password))
-			return HttpResponse("Invalid login details supplied.")
+			return render(request, 'WER_app/invalidLogin.html', {})
 
 	else:
 		return render(request, 'WER_app/index.html', {})
@@ -158,13 +161,13 @@ def add_review(request, page_name_slug):
         context_dict['pages'] = None 
     return render(request, 'WER_app/add_review.html', context_dict)
 
-def review_sample(request):
+def restaurant(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')
     print(pages[0])
     context_dict = {'reviews': review_list, 'pages':pages}
 
-    return render(request, 'WER_app/review_sample.html', context_dict)
+    return render(request, 'WER_app/restaurant.html', context_dict)
 
 def onCampus(request):
     review_list = Review.objects.order_by('reviewID') 
