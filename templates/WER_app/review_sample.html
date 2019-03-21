@@ -5,16 +5,13 @@
             {% block body_block %}
           
            <style> 
-                #Restaurant {
-                  background: #c1c1c1;
-                  color: #09090a;
+               #Restaurant {
                   font-family: helvetica;
                   font-size:20px;
                   font-style:italic;
-                  opacity: 0.8;
+                  background-color: rgba(255,255,255,0.5);
                   padding: 40px;
                 }
-                
             </style>
             
         
@@ -24,16 +21,24 @@
             <a href="/WER_app/offCampus/" class="btn btn-lg btn-secondary">Off Campus</a>         
         </div>
         
-        <div>    
+        <div style="float: right;">    
         {% if pages %}
             
             {% for page in pages %}
                     <ul id="Restaurant"> 
-                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a><br />
-                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:160px;height:120px;" />
+                        <ul> <h1><a href="/WER_app/page/{{ page.slug }}" style="color: black;">{{ page.title }}</a><br /></h1>
+                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:250px;height:200px;" />
+                           
+                             <p> {{page.description}} </p>
+               <p> Address: {{page.address}} </p>
+               <p> Opening Hours: {{page.openingHours}} </p>
+        
                         </ul>
                     </ul>
+            <br />
             {% endfor %}
+            
+        
              
         {% endif %}
        </div>

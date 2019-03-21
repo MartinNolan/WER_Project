@@ -4,8 +4,6 @@ from WER_app.models import UserProfile, Review, Page
 from django.contrib.auth.models import User
 
 
-
-
 class ReviewForm(forms.ModelForm):
     title = forms.CharField(widget=forms.HiddenInput(), initial="")
     comment = forms.CharField(max_length=128, help_text="Please enter a comment.")
@@ -34,7 +32,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
             model = UserProfile
             fields = ('picture',)
-            
+
 
 
             

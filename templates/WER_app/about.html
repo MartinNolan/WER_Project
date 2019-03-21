@@ -3,19 +3,25 @@
 {% block body_block %}
 
 
-<div class="container">
-        <div class="row justify-content-md-center">
-            <div class="mbr-white col-md-10">
-                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-2">MEET OUR TEAM</h3>
-                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
-                   We are a little bit different - we're a small site dedicated to providing the best eating experience you can get in Glasgow's West End. We believe in our project because we are 4 students and wish we had something like this when we had first come to uni. We hope you do too.                                                                                                       
-                </p>
-                <img src="{{MEDIA_URL}}Martin.jpg"
-                 alt = "Picture of the Team!" /><br/> 
-
-                <a href="{% url 'index' %}">Return to the homepage.</a><br />
-            </div>
-        </div>
+<div style="background-color: rgba(255,255,255,0.5);">
+ <header class="entry-header">
+        <h1 class="entry-title">About Us</h1>
+    </header><!-- .entry-header -->
+    
+    <div class="entry-content">
+        <p>We are a little bit different - we're a small site dedicated to providing the best eating experience you can get in Glasgow's West End. We believe in our project because we are 4 students and wish we had something like this when we had first come to uni. We hope you do too. 
+        </p>
+        <div>
+            <h1 class="entry-title">Meet the Team</h1>
+        <img class="thumbnail" src="{{MEDIA_URL}}Martin2.jpg"
+                 alt = "Picture of the Martin!" /><br/>    
+        <img  class="thumbnail" src="{{MEDIA_URL}}Phoebe.jpg"
+                 alt = "Picture of the Phoebe!" /><br/>
+        <img  class="thumbnail" src="{{MEDIA_URL}}Beth.jpg"
+                 alt = "Picture of the Beth!" /><br/>
+        <img  class="thumbnail" src="{{MEDIA_URL}}Callum.jpg"
+                 alt = "Picture of the Callum!" /><br/></div>
     </div>
-
+</div>
 {% endblock %}
+        

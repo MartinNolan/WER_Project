@@ -5,8 +5,9 @@
 
             <style> 
                 #Review {
-                  background: #f8f8ff;
-                  opacity: 1;
+                  font-family: helvetica;
+                  font-size:20px;
+                  background-color: rgba(255,255,255,1);
                   padding: 10px;
                 }
                 #Views {
@@ -18,17 +19,21 @@
                 }
                 .checked {
                   color: #f4f142;
-                }
+                
                 
             </style>
         <div>
             <div>
+                
         {% if pages %}
             {% for page in pages %}
-        
-               <h1><u> {{page.title}} </u></h1>
+        <div style="padding: 30px;"}>
+               <h1 style="color: white"><u> {{page.title}} </u></h1>
+                </div>
+                 <div style="padding: 30px;"}>
                <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
-               
+                </div>
+               <div>
                <div id="map" style="float:right; position:relative; width:35%; height:350px"></div>
                 <script>
                 // Initialize and add the map
@@ -45,19 +50,23 @@
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6zeXEmA7r55_YKB5Zy6pXIiuarsCBhdE&callback=initMap">
             </script>
+                </div>
                
-               
-               <h4> {{page.description}} </h4>
-               <h4> Address: {{page.address}} </h4>
-               <h4> Opening Hours: {{page.openingHours}} </h4>
+               <div style="padding: 30px;"}>
+               <h4 style="color: white"> {{page.description}} </h4>
+               <h4 style="color: white"> Address: {{page.address}} </h4>
+               <h4 style="color: white"> Opening Hours: {{page.openingHours}} </h4>
+                </div>
         
     
             {% endfor %}
         {% endif %}
         
+                <div style="padding: 30px;"}>
         {% if reviews %} 
-         
+        
             {% for review in reviews %} 
+                
                 <ul id = "Review">
                 
                 <ul>{{review.date_modified}}
@@ -71,10 +80,14 @@
                 
                 </ul> 
             {% endfor %} 
+                </div>
+                    <div style="padding: 30px;"}>
         {% else %} 
             <strong>There are no categories present.</strong> 
         {% endif %} 
+                </div>
         </div>
+            <div style="padding: 30px;"}>
         {% if pages %}
             {% for page in pages %}
             
@@ -87,6 +100,7 @@
             {% endif %}
         {% endfor %}
         {% endif %}
+                </div>
 
        
         
