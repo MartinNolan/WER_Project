@@ -141,3 +141,4 @@ PASSWORD_HASHERS = [
 ]
 
 LOGIN_URL = '/WER_app/login/'
+

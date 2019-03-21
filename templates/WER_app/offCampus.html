@@ -5,9 +5,11 @@
             {% block body_block %}
           
            <style> 
-                #Restaurant {
-                  background: #f8f8ff;
-                  opacity: 0.8;
+        #Restaurant {
+                  font-family: helvetica;
+                  font-size:20px;
+                  font-style:italic;
+                  background-color: rgba(255,255,255,0.5);
                   padding: 40px;
                 }
                 
@@ -24,8 +26,11 @@
             {% for page in pages %}
                 {% if page.onCampus == False %}
                     <ul id="Restaurant"> 
-                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a>
-                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:160px;height:120px;" />
+                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a><br />
+                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:250px;height:200px;" />
+                                                         <h4> {{page.description}} </h4>
+               <h4> Address: {{page.address}} </h4>
+               <h4> Opening Hours: {{page.openingHours}} </h4>
                         </ul>
                     </ul>
                 {% endif %}
