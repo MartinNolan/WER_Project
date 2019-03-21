@@ -143,13 +143,13 @@ def add_review(request, page_name_slug):
         context_dict['pages'] = None 
     return render(request, 'WER_app/add_review.html', context_dict)
 
-def review_sample(request):
+def restaurant(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')
     print(pages[0])
     context_dict = {'reviews': review_list, 'pages':pages}
 
-    return render(request, 'WER_app/review_sample.html', context_dict)
+    return render(request, 'WER_app/restaurant.html', context_dict)
 
 def onCampus(request):
     review_list = Review.objects.order_by('reviewID') 

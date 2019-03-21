@@ -1,7 +1,5 @@
 {% extends 'WER_app/base.html' %}
 
-     
-
             {% block body_block %}
           
            <style> 
@@ -13,7 +11,6 @@
                   padding: 40px;
                 }
                 #Buffer {
-                    opacity:0;
                     
                 }
                 
@@ -26,28 +23,33 @@
             <a href="/WER_app/offCampus/" class="btn btn-lg btn-secondary">Off Campus</a>         
         </div>
         
-        <div style="float: right;">    
+            
         {% if pages %}
             
             {% for page in pages %}
-                {% if page.onCampus == True %}
-                    <ul id="Restaurant"> 
+                
+                    <div id='Restaurant'>
+                        <ul > 
                         <ul> <h1><a href="/WER_app/page/{{ page.slug }}" style="color: black;">{{ page.title }}</a><br /></h1>
-                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:250px;height:200px;" />
-                           
-                             <p> {{page.description}} </p>
-               <p> Address: {{page.address}} </p>
-               <p> Opening Hours: {{page.openingHours}} </p>
-        
-                        </ul>
-                    </ul>
-            <br />
-                {% endif %}
-            {% endfor %}
+                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:250px;height:200px;" />     
+                        
+                     <div> 
+                            <p> {{page.description}} </p>
+                            <p> Address: {{page.address}} </p>
+                            <p> Opening Hours: {{page.openingHours}} </p>
+                     </div>
+                     </ul>
+                     </ul>
+                   </div>  
+                   
+                <br />
+            
+           {% endfor %}
             
         
              
         {% endif %}
+
        </div>
         <ul id="Buffer">Buffer</ul>
         <div> 
