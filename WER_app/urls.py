@@ -20,11 +20,8 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name='login'),
     url(r'^restricted/', views.restricted, name='restricted'),
     url(r'^logout/$', views.user_logout, name='logout'),
-<<<<<<< HEAD
      url(r'^email/$', views.email, name='email'),
-=======
     url(r'^invalidLogin/$', views.invalidLogin, name='invalidLogin'),
->>>>>>> e7dc5c7edb3886d8fdf6c6883fd08936dd105b8b
     
 
 ]
