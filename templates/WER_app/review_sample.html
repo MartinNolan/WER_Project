@@ -1,7 +1,5 @@
 {% extends 'WER_app/base.html' %}
 
-     
-
             {% block body_block %}
           
            <style> 
@@ -12,11 +10,15 @@
                   background-color: rgba(255,255,255,0.5);
                   padding: 40px;
                 }
+                #Buffer {
+                    
+                }
+                
             </style>
             
         
         <div>
-            <a href="/WER_app/review_sample/" class="btn btn-lg btn-secondary">All</a>
+            <a href="/WER_app/restaurant/" class="btn btn-lg btn-secondary">All</a>
             <a href="/WER_app/onCampus/" class="btn btn-lg btn-secondary">On Campus</a>
             <a href="/WER_app/offCampus/" class="btn btn-lg btn-secondary">Off Campus</a>         
         </div>
@@ -47,8 +49,8 @@
         
              
         {% endif %}
-       
-        
+       </div>
+        <ul id="Buffer">Buffer</ul>
         <div> 
             {% endblock %}
         </div>

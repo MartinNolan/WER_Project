@@ -3,6 +3,14 @@
 
 {% block body_block %}
     <html> 
+    <style>
+        
+        #id_comment {
+            width: 500px;
+        }
+
+    </style>
+        
         <head> 
             <title>Review</title> 
         </head> 
@@ -15,7 +23,6 @@
      
                <h1><u> {{page.title}} </u></h1>
      
-      
             {% endfor %}
         {% endif %}
         </div>
@@ -26,9 +33,12 @@
                         {{ hidden }} 
                     {% endfor %} 
                     {% for field in form.visible_fields %} 
+                      
+                    <div>
                         {{ field.errors }} 
                         {{ field.help_text }} 
                         {{ field }}
+                    </div>
                     {% endfor %} 
                     <input id="id_title" name="title" type="hidden" value="{{page.title}}" /> 
                     

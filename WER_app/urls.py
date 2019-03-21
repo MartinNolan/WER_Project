@@ -5,10 +5,10 @@ from WER_app import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^search/', views.search, name='search'),
-    url(r'^review_sample/', views.review_sample, name='review_sample'),
+    url(r'^restaurant/', views.restaurant, name='restaurant'),
     url(r'^onCampus/', views.onCampus, name='onCampus'),
     url(r'^offCampus/', views.offCampus, name='offCampus'),
-    url(r'^review_sample/', views.review_sample, name='review_sample'),
+  #  url(r'^restaurant/', views.review_sample, name='review_sample'),
     url(r'^page/(?P<page_name_slug>[\w\-]+)/$', views.review, name='review'),
     url(r'^add_review/(?P<page_name_slug>[\w\-]+)/$', views.add_review, name='add_review'), 
     url(r'^about/', views.about, name='about'),
@@ -20,6 +20,8 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name='login'),
     url(r'^restricted/', views.restricted, name='restricted'),
     url(r'^logout/$', views.user_logout, name='logout'),
+    url(r'^invalidLogin/$', views.invalidLogin, name='invalidLogin'),
+    
 
 ]
 
