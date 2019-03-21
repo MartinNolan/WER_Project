@@ -142,3 +142,4 @@ PASSWORD_HASHERS = [
 
 LOGIN_URL = '/WER_app/login/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

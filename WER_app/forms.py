@@ -40,7 +40,7 @@ class UserProfileForm(forms.ModelForm):
 class ContactForm(forms.Form):
     name = forms.CharField(required=True)
     phone = forms.CharField(required=True, max_length=11)
-    email = forms.EmailField(required=True)
+    from_email = forms.EmailField(required=True)
     message = forms.CharField(widget=forms.Textarea, required=True)
     class Meta:
         model = ContactForm

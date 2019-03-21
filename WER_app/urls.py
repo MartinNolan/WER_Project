@@ -20,7 +20,13 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name='login'),
     url(r'^restricted/', views.restricted, name='restricted'),
     url(r'^logout/$', views.user_logout, name='logout'),
+<<<<<<< HEAD
      url(r'^email/$', views.email, name='email'),
+=======
+
+     url(r'^email/$', views.email, name='email'),
+
+>>>>>>> 982448e0f9e3088aee7d51cd99800717a92b8714
     url(r'^invalidLogin/$', views.invalidLogin, name='invalidLogin'),
     
 
