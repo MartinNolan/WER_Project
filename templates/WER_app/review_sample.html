@@ -21,27 +21,33 @@
             <a href="/WER_app/offCampus/" class="btn btn-lg btn-secondary">Off Campus</a>         
         </div>
         
-        <div style="float: right;">    
+            
         {% if pages %}
             
             {% for page in pages %}
-                    <ul id="Restaurant"> 
+                
+                    <div id='Restaurant'>
+                        <ul > 
                         <ul> <h1><a href="/WER_app/page/{{ page.slug }}" style="color: black;">{{ page.title }}</a><br /></h1>
-                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:250px;height:200px;" />
-                           
-                             <p> {{page.description}} </p>
-               <p> Address: {{page.address}} </p>
-               <p> Opening Hours: {{page.openingHours}} </p>
-        
-                        </ul>
-                    </ul>
-            <br />
-            {% endfor %}
+                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:250px;height:200px;" />     
+                        
+                     <div> 
+                            <p> {{page.description}} </p>
+                            <p> Address: {{page.address}} </p>
+                            <p> Opening Hours: {{page.openingHours}} </p>
+                     </div>
+                     </ul>
+                     </ul>
+                   </div>  
+                   
+                <br />
+            
+           {% endfor %}
             
         
              
         {% endif %}
-       </div>
+       
         
         <div> 
             {% endblock %}
