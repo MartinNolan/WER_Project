@@ -13,13 +13,15 @@ urlpatterns = [
     url(r'^add_review/(?P<page_name_slug>[\w\-]+)/$', views.add_review, name='add_review'), 
     url(r'^about/', views.about, name='about'),
     url(r'^FAQ/', views.FAQ, name='FAQ'),
-    url(r'^contact-us/', views.contact, name='contact-us'),
+    url(r'^contact-us/', views.email, name='contact-us'),
     url(r'^t&cs/', views.tAndC, name='t&cs'),
    #url(r'^sign_up/', views.sign_up, name='sign_up'),
     url(r'^register/$', views.register, name='register'),
     url(r'^login/$', views.user_login, name='login'),
     url(r'^restricted/', views.restricted, name='restricted'),
     url(r'^logout/$', views.user_logout, name='logout'),
+     url(r'^email/$', views.email, name='email'),
+    
 
 ]
 

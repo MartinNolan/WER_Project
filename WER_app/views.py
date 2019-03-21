@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from WER_app.models import Review, Page
-from WER_app.forms import UserForm, UserProfileForm, ReviewForm
+from WER_app.forms import UserForm, UserProfileForm, ContactForm,ReviewForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
@@ -39,8 +39,23 @@ def FAQ(request):
 def tAndC(request):
     return render(request, 'WER_app/t&cs.html')
     
-def contact(request):
-    return render(request, 'WER_app/contact-us.html')
+def email(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            phone = form.cleaned_data['phone']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            name = form.cleaned_data['name']
+            try:
+                send_mail(phone, name, email,meassage, ['admin@example.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('thanks')
+    return render(request, "WER_app/contact-us.html", {'form': form})
+
 
 def register(request):
 	registered = False
