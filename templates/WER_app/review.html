@@ -21,22 +21,43 @@
                   color: #f4f142;
                 }
                 
+                 #Buffer {
+                     opacity:0;
+                    padding: 20px;
+                    
+                }
+                
             </style>
-        <div style="padding:30px">
+<div style = "background-color: rgba(255,255,255,0.5);">
+        <div style="padding:15px">
             <a href="/WER_app/restaurant/" class="btn btn-lg btn-secondary" >Back to restaurants</a>
+            {% if pages %}
+            {% for page in pages %}
+            
+            {% if user.is_authenticated %}
+                
+                    <a href="/WER_app/add_review/{{ page.slug }}" class="btn btn-lg btn-secondary" >Add a New Review</a><br />
+           
+            {% else %}
+                <a href="/WER_app/register/" class="btn btn-lg btn-secondary" >Sign up to add a review!</a><br />
+            {% endif %}
+        {% endfor %}
+        {% endif %}
 </div>
-            <div>
+
+
+            <div style="padding: 30px;">
                 
         {% if pages %}
             {% for page in pages %}
-        <div style="padding: 30px;"}>
-               <h1 style="color: white"><u> {{page.title}} </u></h1>
+        <div style="padding: 30px;">
+               <h1 ><u> {{page.title}} </u></h1>
                 </div>
                  <div style="padding: 30px;"}>
                <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
                 </div>
                <div>
-               <div id="map" style="float:right; position:relative; width:35%; height:350px; margin-top:-260px"></div>
+               <div id="map" style="float:right; position:relative; width:40%; height:350px; margin-top:-260px"></div>
                 <script>
                 // Initialize and add the map
                 function initMap() {
@@ -55,9 +76,9 @@
                 </div>
                
                <div style="padding: 30px;"}>
-               <h4 style="color: white"> {{page.description}} </h4>
-               <h4 style="color: white"> Address: {{page.address}} </h4>
-               <h4 style="color: white"> Opening Hours: {{page.openingHours}} </h4>
+               <h4> {{page.description}} </h4>
+               <h4> Address: {{page.address}} </h4>
+               <h4> Opening Hours: {{page.openingHours}} </h4>
                 </div>
         
     
@@ -90,29 +111,12 @@
                 </div>
         </div>
            
-        <div style="padding: 60px;"}>
-        {% if pages %}
-            {% for page in pages %}
-            
-            {% if user.is_authenticated %}
-                <div>
-                    <a href="/WER_app/add_review/{{ page.slug }}">Add a New Review</a><br />
-                </div>
-            {% else %}
-                <p> Log in to add a review! </p>
-            {% endif %}
-        {% endfor %}
-        {% endif %}
-                </div>
-
-       
+</div>
+ <div>
+        <ul id="Buffer">Buffer</ul>
+        <div> 
+            {% endblock %}
+        </div>
         
-        <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        </div>
-        <div id="Views">
-            <p style="text-align:center;">Page Views: {{page.views}}</p>
-        </div>
-
+       
            
-{% endblock %}

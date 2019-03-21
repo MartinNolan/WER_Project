@@ -101,7 +101,6 @@ navbar-dark .navbar-text{color:white}.navbar-dark .navbar-text a{color:#fff}.nav
 .hidden{
   display: none;
 }
-
 a:hover .smallbox {background-color:blue;}
 a:visited .smallbox {background-color:green;}
 a:visited .smallbox:hover {background-color:blue;}#
