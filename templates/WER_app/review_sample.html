@@ -25,7 +25,7 @@
             
             {% for page in pages %}
                     <ul id="Restaurant"> 
-                        <ul> <a href="/WER_app/page/{{ page.slug }}">{{ page.title }}</a>
+                        <ul> <a href="/WER_app/page/{{ page.slug }}" style="color:red">{{ page.title }}</a>
                         <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:160px;height:120px;" />
                         </ul>
                     </ul>
