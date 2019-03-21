@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
+from django.core.mail import send_mail, BadHeaderError
 
 def index(request):
     request.session.set_test_cookie()
@@ -46,14 +47,14 @@ def email(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             phone = form.cleaned_data['phone']
-            email = form.cleaned_data['email']
+            from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             name = form.cleaned_data['name']
             try:
-                send_mail(phone, name, email,meassage, ['admin@example.com'])
+                send_mail('contact form','phone: ' +phone + ' name: ' + name + ' message: ' + message, from_email,['2299260m@student.gla.ac.uk'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('thanks')
+            
     return render(request, "WER_app/contact-us.html", {'form': form})
 
 
