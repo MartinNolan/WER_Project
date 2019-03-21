@@ -22,7 +22,9 @@
                 
                 
             </style>
-        <div>
+        <div style="padding:30px">
+            <a href="/WER_app/review_sample/" class="btn btn-lg btn-secondary" >Back to restaurants</a>
+</div>
             <div>
                 
         {% if pages %}
@@ -34,7 +36,7 @@
                <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" />
                 </div>
                <div>
-               <div id="map" style="float:right; position:relative; width:35%; height:350px"></div>
+               <div id="map" style="float:right; position:relative; width:35%; height:350px; margin-top:-260px"></div>
                 <script>
                 // Initialize and add the map
                 function initMap() {
