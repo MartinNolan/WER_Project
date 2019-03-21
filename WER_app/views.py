@@ -51,7 +51,7 @@ def email(request):
             message = form.cleaned_data['message']
             name = form.cleaned_data['name']
             try:
-                send_mail('contact form','phone: ' +phone + ' name: ' + name + ' message: ' + message, from_email,['2299260m@student.gla.ac.uk'])
+                send_mail('contact form','phone: ' +phone + ' name: ' + name + ' message: ' + message, from_email,['westendrestaurant@gmail.co.uk'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             

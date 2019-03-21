@@ -30,12 +30,8 @@
     {% csrf_token %}
     {{ form }}
     
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" onClick="alert('Thank you for contacting us. We will respond to you ASAP.');" />
 </form>
-                
-<div>
-    Thanks for filling out the form!
-                </div>
 
 
 {% endblock %}
