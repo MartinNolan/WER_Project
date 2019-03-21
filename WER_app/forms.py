@@ -1,4 +1,3 @@
-
 from django import forms
 from WER_app.models import UserProfile, Review, Page
 from django.contrib.auth.models import User

@@ -42,6 +42,9 @@ def tAndC(request):
 def contact(request):
     return render(request, 'WER_app/contact-us.html')
 
+def invalidLogin(request):
+    return render(request, 'WER_app/invalidLogin.html')
+
 def register(request):
 	registered = False
 
@@ -83,7 +86,7 @@ def user_login(request):
 				return HttpResponse("Your WER account is disabled.")
 		else:
 			print("Invalid login details: {0}, {1}".format(username, password))
-			return HttpResponse("Invalid login details supplied.")
+			return render(request, 'WER_app/invalidLogin.html', {})
 
 	else:
 		return render(request, 'WER_app/index.html', {})
