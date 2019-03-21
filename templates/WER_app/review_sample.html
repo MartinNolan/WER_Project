@@ -1,7 +1,5 @@
 {% extends 'WER_app/base.html' %}
 
-     
-
             {% block body_block %}
           
            <style> 
@@ -12,6 +10,10 @@
                   background-color: rgba(255,255,255,0.5);
                   padding: 40px;
                 }
+                #Buffer {
+                    
+                }
+                
             </style>
             
         
@@ -26,10 +28,6 @@
             
             {% for page in pages %}
                     <ul id="Restaurant"> 
-<<<<<<< HEAD
-                        <ul> <a href="/WER_app/page/{{ page.slug }}" style="color:red">{{ page.title }}</a>
-                        <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:160px;height:120px;" />
-=======
                         <ul> <h1><a href="/WER_app/page/{{ page.slug }}" style="color: black;">{{ page.title }}</a><br /></h1>
                         <img src = "{{ MEDIA_URL}}{{page.picture}}" alt = "Restaurant Picture" style="width:250px;height:200px;" />
                            
@@ -37,7 +35,6 @@
                <p> Address: {{page.address}} </p>
                <p> Opening Hours: {{page.openingHours}} </p>
         
->>>>>>> 3e75116d00361b761056e65dce77cc772bbaf6e6
                         </ul>
                     </ul>
             <br />
@@ -47,7 +44,7 @@
              
         {% endif %}
        </div>
-        
+        <ul id="Buffer">Buffer</ul>
         <div> 
             {% endblock %}
         </div>
