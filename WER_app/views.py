@@ -17,7 +17,14 @@ def index(request):
 
 
 def search(request):
-    return render(request, 'WER_app/search.html')
+    if request.method == 'GET':
+        restaurant_name = request.GET.get('q')
+        status = Page.objects.filter(title__icontains=restaurant_name)
+        print(status)
+
+    return render(request, 'WER_app/search.html', {'pages':status})
+
+
 
 def about(request):
     if request.session.test_cookie_worked():
