@@ -2,6 +2,8 @@
 import os
 import sys
 
+
+#a script that allows us to launch the app from our machines, and to carry out various database commands
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WER_project.settings')
     try:

@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from WER_app import views
 
-
+#the urls for all of the pages on the web app
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^search/', views.search, name='search'),

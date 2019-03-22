@@ -18,6 +18,7 @@ Review entity template
          "atmosphere":,}]
 """
 
+#populates the database with reviews for resteraunts
 def populate():
     cwd = os.getcwd()
     files = glob.glob(cwd+'/media/restaurant/*')
@@ -140,7 +141,7 @@ def populate():
          "quality":4,
          "atmosphere":5}]
     
-    
+    #adds resteraunts to the database with all of the required info to create a page
     reviews = {"Paesano Pizza": {"pages": Paesano_Pizza, "image":"Paesano_Pizza.jpg", "description":"Pizza Place", "address":"471 Great Western Road, Glasgow G12 8HL, Scotland", "openingHours":"Sun - Wed  12:00 - 22:30\nThu 12:00 - 23:00\nFri12:00 - 00:00", "onCampus":False, "latitude":55.875172, "longitude":-4.2839027},
                 "Ubiquitous Chip": {"pages": Ubiquitous_Chip, "image":"Ubiquitous_Chip.jpg", "description":"Artistic brasserie dishes that display their provenance, served in a leafy space with fairy lights.", "address":"12 Ashton Lane, Glasgow G12 8SJ, Scotland", "openingHours":"Sun – Sat 11:00 - 01:00", "onCampus":False, "latitude":55.874893, "longitude":-4.2954117},
                 "Food for Thought": {"pages": Food_for_Thought, "image":"Library_Cafe.jpg", "description":"Cafe in the Fraser Building for students, staff and visitors to the campus, serving hot meals and snacks.", "address":"Fraser Building, 65 Hillhead St, Glasgow G12 8QF", "openingHours":"Mon-Fri 11:00 - 15:00 ","onCampus":True, "latitude":55.8731782, "longitude":-4.2905351},
@@ -168,6 +169,7 @@ def populate():
          print(str(r))
 
     
+#a method that adds a review to the database    
 def add_review(title, comment, price, quality, atmosphere):
     r = Review.objects.create()
     r.title=title
@@ -177,7 +179,8 @@ def add_review(title, comment, price, quality, atmosphere):
     r.atmosphere = atmosphere
     r.save()
     return r
-    
+ 
+#method that adds a page to the database
 def add_page(review, title, image, description, address, openingHours, onCampus, latitude, longitude):
     p = Page.objects.get_or_create(title=title)[0]
     cwd = os.getcwd()
@@ -190,7 +193,8 @@ def add_page(review, title, image, description, address, openingHours, onCampus,
     p.latitude = latitude
     p.longitude = longitude
     p.save()
-    
+
+#runs the populate() method
 if __name__ == '__main__':
     print("Starting WER_app population script...")
     populate()

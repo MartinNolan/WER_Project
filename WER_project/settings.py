@@ -142,7 +142,7 @@ PASSWORD_HASHERS = [
 
 LOGIN_URL = '/WER_app/login/'
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#this code allows users to send emails to our chosen email adrress from the contact us page
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'westendrestaurants@gmail.com'

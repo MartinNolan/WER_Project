@@ -2,7 +2,7 @@ from django import forms
 from WER_app.models import UserProfile, Review, Page, ContactForm
 from django.contrib.auth.models import User
 
-
+#the form for a review
 class ReviewForm(forms.ModelForm):
     title = forms.CharField(widget=forms.HiddenInput(), initial="")
     
@@ -17,11 +17,13 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = ('reviewID','title','price','quality','atmosphere','avgRating','comment',)
         
+#the form for the base review class
 class Reviews(forms.ModelForm):
     class Meta:
         model = Review
         fields = ('reviewID','title','comment','price','quality','atmosphere','avgRating',)
 
+#the form for the base user class
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 
@@ -29,6 +31,7 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password')
 
+#the from for the users profile
 class UserProfileForm(forms.ModelForm):
     class Meta:
             model = UserProfile
@@ -36,7 +39,7 @@ class UserProfileForm(forms.ModelForm):
 
 
 
-            
+#the form for the contact us page  
 class ContactForm(forms.Form):
     name = forms.CharField(required=True)
     phone = forms.CharField(required=True, max_length=11)

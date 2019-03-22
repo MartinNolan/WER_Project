@@ -7,7 +7,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
-
+#the model for the reviews of resteraunts
 class Review(models.Model):
    
     reviewID = models.AutoField(primary_key=True)
@@ -23,11 +23,12 @@ class Review(models.Model):
     
     def __str__(self):
         return str(self.reviewID)
-
+    #method to save a review to the database
     def save(self, *args, **kwargs):
         self.avgRating = (self.price + self.quality + self.atmosphere)/3 
         super(Review, self).save(*args, **kwargs)
         
+#the model for a resteraunt page
 class Page(models.Model): 
 
     title = models.CharField(max_length=128) 
@@ -41,7 +42,7 @@ class Page(models.Model):
     views = models.IntegerField(default=0)
     slug = models.SlugField(blank=True)
     
-    
+    #method that saves the resteraunt page to the database
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Page, self).save(*args, **kwargs)
@@ -50,6 +51,7 @@ class Page(models.Model):
     def __str__(self): 
         return self.title
 
+#the model for a user profile
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     picture = models.ImageField(upload_to='profile_images', blank=True)
@@ -57,7 +59,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-    
+#the model for the form on the contact us page
 class ContactForm(models.Model):
     
     name = models.CharField(max_length=60, default="Default")
