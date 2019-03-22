@@ -10,13 +10,14 @@ from django.contrib.auth import logout
 from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
 
+#collects cookie and returns response
 def index(request):
     request.session.set_test_cookie()
     visitor_cookie_handler(request)
     response = render(request, 'WER_app/index.html',)
     return response
 
-
+#gets restaurant name and prints status
 def search(request):
     if request.method == 'GET':
         restaurant_name = request.GET.get('q')
@@ -26,7 +27,7 @@ def search(request):
     return render(request, 'WER_app/search.html', {'pages':status})
 
 
-
+#shows if cookies are working
 def about(request):
     if request.session.test_cookie_worked():
         print("TEST COOKIE WORKED!")
@@ -39,7 +40,8 @@ def FAQ(request):
 
 def tAndC(request):
     return render(request, 'WER_app/t&cs.html')
-    
+
+#sends email for when user uses contact us including all details and message
 def email(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -61,6 +63,7 @@ def email(request):
 def invalidLogin(request):
     return render(request, 'WER_app/invalidLogin.html')
 
+#uses user and profile forms to register user and validate login details
 def register(request):
 	registered = False
 
@@ -88,6 +91,7 @@ def register(request):
 	return render(request, 'WER_app/register.html', {'user_form': user_form, 
 	'profile_form': profile_form, 'registered': registered})
 
+#validate login details and logs user in
 def user_login(request):
 	if request.method == 'POST':
 		username = request.POST.get('username')
@@ -111,12 +115,13 @@ def user_login(request):
 def restricted(request):
 	return HttpResponse("Since you're logged in, you can see this text!")
 
+#logs user out
 @login_required
 def user_logout(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('index'))
 
-    
+#shows reviews   
 def review(request, page_name_slug):
     #review_list = Review.objects.order_by('reviewID')[:4] 
     #pages = Page.objects.order_by('title')[:4]
@@ -137,7 +142,8 @@ def review(request, page_name_slug):
         context_dict['pages'] = None 
 
     return render(request, 'WER_app/review.html', context_dict)    
-    
+
+#adds reviews to database using forms
 def add_review(request, page_name_slug):
     form = ReviewForm()
     if request.method == 'POST':
@@ -161,7 +167,7 @@ def add_review(request, page_name_slug):
         context_dict['page'] = None
         context_dict['pages'] = None 
     return render(request, 'WER_app/add_review.html', context_dict)
-
+#outlnes reviews of restaurants
 def restaurant(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')
@@ -169,14 +175,14 @@ def restaurant(request):
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/restaurant.html', context_dict)
-
+#same as restaurant but only for on campus
 def onCampus(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')
     context_dict = {'reviews': review_list, 'pages':pages}
 
     return render(request, 'WER_app/onCampus.html', context_dict)
-    
+#same as restaurant but only for off campus   
 def offCampus(request):
     review_list = Review.objects.order_by('reviewID') 
     pages = Page.objects.order_by('title')

@@ -15,6 +15,7 @@
 	<h4 class="card-title mt-3 text-center">Register for West End Restaurants!</h4>
 	<p class="text-center">Get started with your free account</p>
 	<p class="divider-text"> </p>
+    <!-- if registered a link is provided to return to homepage --> 
 	{% if registered %}
 		<strong>Thank you for registering!</strong>
 		<a href="{% url 'index' %}">Return to the homepage.</a><br />
@@ -22,7 +23,7 @@
 
 		<form id="user_form" method="post" action="{% url 'register' %}"
 		enctype="multipart/form-data">
-
+        <!-- creates account --> 
 		{% csrf_token %}
 		{{ user_form.as_p }}
 		{{ profile_form.as_p }}
