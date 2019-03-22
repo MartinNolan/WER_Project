@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.db.models import Avg
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -15,9 +16,9 @@ class Review(models.Model):
     
     comment = models.CharField(max_length=200, default="Default")  
     date_modified = models.DateTimeField(auto_now_add=True)
-    price = models.IntegerField(default=0)
-    quality = models.IntegerField(default=0)
-    atmosphere = models.IntegerField(default=0)
+    price = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
+    quality = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
+    atmosphere = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
     avgRating = models.IntegerField(default=0)
     
     def __str__(self):
