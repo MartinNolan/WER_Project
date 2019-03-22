@@ -1,6 +1,7 @@
 {% extends 'WER_app/base.html' %}
 
   {% block body_block %}
+             <!-- style for each restaurant --> 
              <style> 
                #Restaurant {
                   font-family: helvetica;
@@ -13,7 +14,7 @@
     
     
 
-
+        <!-- displays searched for restaurants --> 
         {% if pages %}
             
             {% for page in pages %}
@@ -30,7 +31,7 @@
             <br />
             {% endfor %}
             
-        
+        <!-- if there are no restaurants to match search that is shown and user can navigate back --> 
          {% else %} 
   <h1 class="cover-heading" style = "color: white; text-align: center;">Sorry, there are no results available for your search.</h1>
         <p align="center">

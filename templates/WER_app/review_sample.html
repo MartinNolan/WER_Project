@@ -2,6 +2,7 @@
 
             {% block body_block %}
           
+            <!-- style for each restaurant and buffer for better layout --> 
            <style> 
                #Restaurant {
                   font-family: helvetica;
@@ -18,14 +19,14 @@
                 
             </style>
             
-        
+        <!-- buttons to select which filter users want -->
         <div>
             <a href="/WER_app/restaurant/" class="btn btn-lg btn-secondary">All</a>
             <a href="/WER_app/onCampus/" class="btn btn-lg btn-secondary">On Campus</a>
             <a href="/WER_app/offCampus/" class="btn btn-lg btn-secondary">Off Campus</a>         
         </div>
         
-            
+         <!-- displays each restaurant with a picture, description, address and opening hours -->    
         {% if pages %}
             
             {% for page in pages %}
@@ -51,6 +52,7 @@
              
         {% endif %}
        <div>
+        <!-- uses buffer to improve layout --> 
         <ul id="Buffer">Buffer</ul>
         <div> 
             {% endblock %}

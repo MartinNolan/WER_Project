@@ -8,17 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>
             West End Restaurants
-
         </title>
 
 
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- stylesheets for bootstrap etc --> 
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
       <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
-                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    
+    <!-- style for media --> 
     <style>
         
         
@@ -38,50 +37,52 @@
     </style>
 
   </head>
-  <body style="background-image: url({% static 'images/homeBackground4.jpg' %}); background-repeat: no-repeat; width: 100%;
+      <!-- background image --> 
+    <body style="background-image: url({% static 'images/homeBackground4.jpg' %}); background-repeat: no-repeat; width: 100%;
 height: 100%;
 min-height: 1000px;">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="{% url 'index' %}">West End Restaurants</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="{% url 'index' %}">West End Restaurants</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+        <!-- drop down for users not logged in --> 
     {% if not user.is_authenticated %}
-     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In or Sign up</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <form class="dropdown-item" id="login_form" method="post" action="{% url 'login' %}">
+        <form class="dropdown-item" id="login_form" method="post" action="{% url 'login' %}">
+    <!-- user enters login details --> 
     {% csrf_token %}
-    Username: <input type="text" name="username" value="" size="50" />
-    <br />
-    Password: <input type="password" name="password" value="" size="50" />
-    <br />
-    <input type="submit" value="Login" />
-</form>
+        Username: <input type="text" name="username" value="" size="50" />
+        <br />
+        Password: <input type="password" name="password" value="" size="50" />
+        <br />
+        <input type="submit" value="Login" />
+        </form>
           <a class="dropdown-item" href="{% url 'register' %}">Don't have an account? Sign Up now</a>
-        </div>
+       </div>
        </li>
-        </ul>
-         <div> 
+       </ul>
+       <div> 
      {% endif %}
     
-             
-             {% if user.is_authenticated %}
-             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
+       <!-- drop down for logged in users -->       
+     {% if user.is_authenticated %}
+         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+         <ul class="navbar-nav mr-auto">
+         <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-
-                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
         </div>
-       </li>
+        </li>
         </ul>
-         <div> 
-             {% endif %}
+        <div> 
+     {% endif %}
     </div>
      <form id="searchform" action="{% url 'search' %}" method="GET" accept-charset="utf-8">
       <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
