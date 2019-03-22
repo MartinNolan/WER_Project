@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from WER_app.models import Review, Page
-from WER_app.forms import UserForm, UserProfileForm, ReviewForm
+from WER_app.forms import UserForm, UserProfileForm, ContactForm,ReviewForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
+from django.core.mail import send_mail, BadHeaderError
 
 def index(request):
     request.session.set_test_cookie()
@@ -39,8 +40,23 @@ def FAQ(request):
 def tAndC(request):
     return render(request, 'WER_app/t&cs.html')
     
-def contact(request):
-    return render(request, 'WER_app/contact-us.html')
+def email(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            phone = form.cleaned_data['phone']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            name = form.cleaned_data['name']
+            try:
+                send_mail('contact form','phone: ' +phone + ' name: ' + name + ' message: ' + message, from_email,['westendrestaurant@gmail.co.uk'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            
+    return render(request, "WER_app/contact-us.html", {'form': form})
+
 
 def invalidLogin(request):
     return render(request, 'WER_app/invalidLogin.html')

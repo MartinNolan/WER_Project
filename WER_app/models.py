@@ -55,3 +55,12 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    
+class ContactForm(models.Model):
+    
+    name = models.CharField(max_length=60, default="Default")
+    phone = models.CharField(max_length=11, default="Default")
+    from_email = models.EmailField()
+    message = models.CharField(max_length=400, default="Default")
+    

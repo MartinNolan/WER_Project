@@ -1,5 +1,5 @@
 from django import forms
-from WER_app.models import UserProfile, Review, Page
+from WER_app.models import UserProfile, Review, Page, ContactForm
 from django.contrib.auth.models import User
 
 
@@ -37,3 +37,11 @@ class UserProfileForm(forms.ModelForm):
 
 
             
+class ContactForm(forms.Form):
+    name = forms.CharField(required=True)
+    phone = forms.CharField(required=True, max_length=11)
+    from_email = forms.EmailField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)
+    class Meta:
+        model = ContactForm
+    

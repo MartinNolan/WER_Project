@@ -1,1 +1,4 @@
+*.sqlite3
+migrations/
 db.sqlite3
+WER_app/__pycache__/
